@@ -26,52 +26,60 @@ button {
     font: inherit;
 }
 
+/* =========================================================
+   ОБЩАЯ СЦЕНА
+========================================================= */
+
 #game {
     position: relative;
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    background: url("fon.png") center center / cover no-repeat;
+
+    background:
+        url("fon.png")
+        center center / cover
+        no-repeat;
 }
 
-/* =====================================================
+/* =========================================================
    МЕНЮ
-===================================================== */
+========================================================= */
 
 #setupScreen {
     position: absolute;
     inset: 0;
-    z-index: 2000;
+    z-index: 3000;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    padding: 24px;
+    padding: 22px;
 
-    background: rgba(8,12,35,.42);
-    backdrop-filter: blur(4px);
+    background: rgba(7, 10, 34, .43);
+    backdrop-filter: blur(5px);
 }
 
 .setup-card {
-    width: min(940px,94vw);
+    width: min(930px, 94vw);
     max-height: 94vh;
     overflow-y: auto;
 
     padding: 30px 34px 32px;
 
-    border: 1px solid rgba(255,255,255,.28);
-    border-radius: 32px;
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,.26);
 
     background:
         linear-gradient(
             145deg,
-            rgba(38,32,78,.94),
-            rgba(22,28,70,.91)
+            rgba(38,32,78,.95),
+            rgba(21,27,68,.93)
         );
 
     box-shadow:
-        0 25px 70px rgba(0,0,0,.38),
+        0 25px 70px rgba(0,0,0,.4),
         inset 0 1px 0 rgba(255,255,255,.18);
 
     color: white;
@@ -79,18 +87,18 @@ button {
 
 .setup-title {
     text-align: center;
-    font-size: clamp(28px,3.4vw,48px);
+    font-size: clamp(29px, 3.3vw, 48px);
     font-weight: 900;
-    color: #fff3c6;
+    color: #fff2c2;
     margin-bottom: 8px;
 }
 
 .setup-subtitle {
     text-align: center;
-    font-size: clamp(14px,1.4vw,19px);
+    font-size: clamp(14px, 1.4vw, 19px);
     line-height: 1.4;
-    opacity: .88;
-    margin-bottom: 22px;
+    opacity: .9;
+    margin-bottom: 20px;
 }
 
 .counter-wrap {
@@ -99,28 +107,27 @@ button {
 
 .counter {
     display: inline-flex;
-
     padding: 9px 16px;
-    margin-bottom: 24px;
+    margin-bottom: 23px;
 
     border-radius: 999px;
 
-    background: rgba(255,255,255,.12);
-    border: 1px solid rgba(255,255,255,.18);
+    background: rgba(255,255,255,.11);
+    border: 1px solid rgba(255,255,255,.17);
 
     font-size: 17px;
     font-weight: 800;
 }
 
 .section {
-    margin-bottom: 24px;
+    margin-bottom: 23px;
 }
 
 .section-title {
+    margin-bottom: 11px;
+    color: #ffd87b;
     font-size: 20px;
     font-weight: 900;
-    color: #ffd87b;
-    margin-bottom: 12px;
 }
 
 .letters {
@@ -130,16 +137,16 @@ button {
 }
 
 .letter-btn {
-    width: 54px;
-    height: 54px;
+    width: 53px;
+    height: 53px;
 
-    border: 2px solid rgba(255,255,255,.20);
     border-radius: 15px;
+    border: 2px solid rgba(255,255,255,.20);
 
     background: rgba(255,255,255,.10);
     color: white;
 
-    font-size: 24px;
+    font-size: 23px;
     font-weight: 900;
 
     cursor: pointer;
@@ -171,22 +178,21 @@ button {
 
 .syllable-types {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 12px;
 }
 
 .type-btn {
-    min-height: 82px;
+    min-height: 80px;
     padding: 12px;
 
-    border: 2px solid rgba(255,255,255,.18);
     border-radius: 18px;
+    border: 2px solid rgba(255,255,255,.18);
 
     background: rgba(255,255,255,.09);
     color: white;
 
     cursor: pointer;
-    transition: .18s ease;
 }
 
 .type-btn strong {
@@ -216,7 +222,7 @@ button {
 
 #error {
     min-height: 24px;
-    margin-top: 13px;
+    margin-top: 12px;
 
     text-align: center;
     color: #ffd0cf;
@@ -226,10 +232,10 @@ button {
 .start-btn {
     display: block;
 
-    width: min(350px,100%);
-    min-height: 62px;
+    width: min(350px, 100%);
+    min-height: 61px;
 
-    margin: 7px auto 0;
+    margin: 6px auto 0;
 
     border: 0;
     border-radius: 20px;
@@ -237,8 +243,8 @@ button {
     background:
         linear-gradient(
             180deg,
-            #ffdb62,
-            #ff9e2f
+            #ffdd65,
+            #ff9e30
         );
 
     color: #4a2756;
@@ -252,13 +258,14 @@ button {
         0 10px 28px rgba(255,151,38,.32);
 }
 
-/* =====================================================
-   ИГРА
-===================================================== */
+/* =========================================================
+   ИГРОВОЙ ЭКРАН
+========================================================= */
 
 #playScreen {
     position: absolute;
     inset: 0;
+
     display: none;
     overflow: hidden;
 }
@@ -275,9 +282,9 @@ button {
     cursor: default;
 }
 
-/* =====================================================
+/* =========================================================
    НАСТРОЙКИ
-===================================================== */
+========================================================= */
 
 #settingsBtn {
     position: absolute;
@@ -285,7 +292,7 @@ button {
     top: 22px;
     right: 22px;
 
-    z-index: 1500;
+    z-index: 2500;
 
     width: 54px;
     height: 54px;
@@ -300,9 +307,9 @@ button {
     cursor: pointer;
 }
 
-/* =====================================================
-   ТЫКВЫ
-===================================================== */
+/* =========================================================
+   ПОЛЕ
+========================================================= */
 
 #pumpkinField {
     position: absolute;
@@ -310,16 +317,28 @@ button {
     z-index: 100;
 }
 
+/* =========================================================
+   ПОЗИЦИЯ ТЫКВЫ
+========================================================= */
+
 .pumpkin-slot {
     position: absolute;
 
-    width: clamp(165px,17vw,290px);
+    width: clamp(165px, 17vw, 290px);
     aspect-ratio: 1.36;
 
-    transform: translate(-50%,-50%);
+    transform:
+        translate(-50%, -50%)
+        scale(var(--pumpkin-scale, 1));
+
+    transform-origin: center;
 
     cursor: inherit;
 }
+
+/* =========================================================
+   ЦЕЛАЯ ТЫКВА
+========================================================= */
 
 .whole-pumpkin {
     position: absolute;
@@ -343,15 +362,20 @@ button {
         filter .15s ease;
 }
 
-.pumpkin-slot.targeted .whole-pumpkin {
+.pumpkin-slot.targeted
+.whole-pumpkin {
     transform: scale(1.035);
 
     filter:
-        brightness(1.07)
+        brightness(1.08)
         drop-shadow(
-            0 14px 11px rgba(0,0,0,.28)
+            0 13px 11px rgba(0,0,0,.28)
         );
 }
+
+/* =========================================================
+   СЛОГ
+========================================================= */
 
 .syllable {
     position: absolute;
@@ -359,11 +383,11 @@ button {
     left: 50%;
     top: 56%;
 
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 
     z-index: 40;
 
-    font-size: clamp(30px,3.8vw,58px);
+    font-size: clamp(30px, 3.7vw, 57px);
     line-height: 1;
     font-weight: 1000;
 
@@ -376,9 +400,62 @@ button {
     pointer-events: none;
 }
 
-/* =====================================================
+/* =========================================================
+   КОНФЕТЫ ВНУТРИ ТЫКВЫ
+========================================================= */
+
+.candy-inside {
+    position: absolute;
+
+    left: 50%;
+    top: 55%;
+
+    width: 40%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(.9);
+
+    opacity: 0;
+
+    /*
+       ВАЖНО:
+       конфеты находятся под половинками,
+       но выше фона.
+    */
+    z-index: 21;
+
+    pointer-events: none;
+
+    filter:
+        drop-shadow(
+            0 6px 7px rgba(0,0,0,.24)
+        );
+}
+
+/*
+   В момент открытия конфеты
+   уже находятся внутри.
+*/
+
+.pumpkin-slot.opened.has-candy
+.candy-inside {
+    opacity: 1;
+}
+
+/*
+   Когда начинается полёт,
+   оригинал внутри скрываем.
+*/
+
+.pumpkin-slot.candy-flying
+.candy-inside {
+    opacity: 0;
+}
+
+/* =========================================================
    ПОЛОВИНКИ
-===================================================== */
+========================================================= */
 
 .half {
     position: absolute;
@@ -410,28 +487,44 @@ button {
     right: 23%;
 }
 
-.pumpkin-slot.opened .whole-pumpkin,
-.pumpkin-slot.opened .syllable {
+/*
+   Цельная тыква исчезает.
+*/
+
+.pumpkin-slot.opened
+.whole-pumpkin,
+
+.pumpkin-slot.opened
+.syllable {
     opacity: 0;
 }
 
-.pumpkin-slot.opened .left-half {
+/*
+   Половинки сразу начинают
+   расходиться.
+*/
+
+.pumpkin-slot.opened
+.left-half {
     animation:
-        openLeft .60s
-        cubic-bezier(.22,.85,.28,1.05)
+        openLeft .72s
+        cubic-bezier(.18,.78,.24,1)
         forwards;
 }
 
-.pumpkin-slot.opened .right-half {
+.pumpkin-slot.opened
+.right-half {
     animation:
-        openRight .60s
-        cubic-bezier(.22,.85,.28,1.05)
+        openRight .72s
+        cubic-bezier(.18,.78,.24,1)
         forwards;
 }
 
 @keyframes openLeft {
+
     0% {
         opacity: 1;
+
         transform:
             translateX(0)
             rotate(0deg);
@@ -439,15 +532,18 @@ button {
 
     100% {
         opacity: 1;
+
         transform:
-            translateX(-54%)
-            rotate(-10deg);
+            translateX(-58%)
+            rotate(-11deg);
     }
 }
 
 @keyframes openRight {
+
     0% {
         opacity: 1;
+
         transform:
             translateX(0)
             rotate(0deg);
@@ -455,78 +551,16 @@ button {
 
     100% {
         opacity: 1;
+
         transform:
-            translateX(54%)
-            rotate(10deg);
+            translateX(58%)
+            rotate(11deg);
     }
 }
 
-/* =====================================================
-   КОНФЕТЫ ВНУТРИ
-===================================================== */
-
-.candy-inside {
-    position: absolute;
-
-    left: 50%;
-    top: 55%;
-
-    width: 43%;
-
-    transform:
-        translate(-50%,-50%)
-        scale(.55);
-
-    opacity: 0;
-
-    /*
-       Конфеты между задним фоном
-       и половинками тыквы.
-    */
-    z-index: 22;
-
-    pointer-events: none;
-
-    filter:
-        drop-shadow(
-            0 6px 7px rgba(0,0,0,.22)
-        );
-}
-
-.pumpkin-slot.opened.has-candy
-.candy-inside {
-
-    animation:
-        candyInside .45s .18s
-        ease forwards;
-}
-
-@keyframes candyInside {
-    from {
-        opacity: 0;
-
-        transform:
-            translate(-50%,-50%)
-            scale(.45);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translate(-50%,-50%)
-            scale(1);
-    }
-}
-
-.pumpkin-slot.candy-leaving
-.candy-inside {
-    opacity: 0 !important;
-}
-
-/* =====================================================
+/* =========================================================
    ПИСТОЛЕТ
-===================================================== */
+========================================================= */
 
 #gunWrap {
     position: absolute;
@@ -534,19 +568,23 @@ button {
     left: 50%;
 
     /*
-       Пистолет заметно выше,
-       чем в первой версии.
+       Теперь низ картинки не выходит
+       за пределы экрана.
     */
-    bottom: 3%;
+    bottom: 1.5%;
 
-    width: clamp(190px,19vw,325px);
-    height: clamp(300px,39vh,490px);
+    width:
+        clamp(150px, 14vw, 235px);
+
+    height:
+        clamp(245px, 31vh, 380px);
 
     transform:
         translateX(-50%)
         rotate(0deg);
 
-    transform-origin: 50% 100%;
+    transform-origin:
+        50% 92%;
 
     z-index: 450;
 
@@ -554,29 +592,33 @@ button {
 }
 
 #gun {
+    display: block;
+
     width: 100%;
     height: 100%;
 
     object-fit: contain;
-    object-position: bottom center;
+    object-position: center bottom;
 
     filter:
         drop-shadow(
-            0 10px 15px rgba(0,0,0,.32)
+            0 10px 14px rgba(0,0,0,.32)
         );
 }
 
 #gunWrap.recoil #gun {
-    animation: recoil .16s ease-out;
+    animation:
+        recoil .17s ease-out;
 }
 
 @keyframes recoil {
+
     0% {
         transform: translateY(0);
     }
 
     40% {
-        transform: translateY(11px);
+        transform: translateY(7px);
     }
 
     100% {
@@ -584,9 +626,9 @@ button {
     }
 }
 
-/* =====================================================
+/* =========================================================
    ПРИЦЕЛ
-===================================================== */
+========================================================= */
 
 #crosshair {
     position: absolute;
@@ -597,9 +639,10 @@ button {
     width: 48px;
     height: 48px;
 
-    transform: translate(-50%,-50%);
+    transform:
+        translate(-50%, -50%);
 
-    z-index: 1000;
+    z-index: 1200;
 
     pointer-events: none;
 
@@ -622,7 +665,8 @@ button {
     left: 50%;
     top: 50%;
 
-    transform: translate(-50%,-50%);
+    transform:
+        translate(-50%, -50%);
 
     background: #c8fbff;
 
@@ -649,7 +693,8 @@ button {
     width: 7px;
     height: 7px;
 
-    transform: translate(-50%,-50%);
+    transform:
+        translate(-50%, -50%);
 
     border-radius: 50%;
 
@@ -667,18 +712,19 @@ button {
         inset 0 0 10px rgba(255,221,82,.65);
 }
 
-#playScreen.reward-mode #crosshair {
+#playScreen.reward-mode
+#crosshair {
     display: none;
 }
 
-/* =====================================================
+/* =========================================================
    ЛАЗЕР
-===================================================== */
+========================================================= */
 
 #laser {
     position: absolute;
 
-    height: 6px;
+    height: 5px;
 
     border-radius: 999px;
 
@@ -686,38 +732,41 @@ button {
 
     opacity: 0;
 
-    z-index: 420;
+    z-index: 430;
 
     pointer-events: none;
 
     background:
         linear-gradient(
             90deg,
-            #eaffff,
-            #7ff4ff 35%,
-            rgba(65,190,255,.8)
+            white,
+            #91f8ff 20%,
+            #4edbff 65%,
+            rgba(69,187,255,.65)
         );
 
     box-shadow:
-        0 0 5px white,
-        0 0 11px #75f4ff,
-        0 0 22px rgba(68,190,255,.9);
+        0 0 4px white,
+        0 0 9px #73efff,
+        0 0 18px rgba(60,190,255,.9);
 }
 
 #laser.fire {
-    animation: laserFire .18s ease-out;
+    animation:
+        laserFire .20s ease-out;
 }
 
 @keyframes laserFire {
+
     0% {
         opacity: 0;
     }
 
-    10% {
+    8% {
         opacity: 1;
     }
 
-    68% {
+    65% {
         opacity: 1;
     }
 
@@ -726,20 +775,20 @@ button {
     }
 }
 
-/* =====================================================
+/* =========================================================
    ВСПЫШКА
-===================================================== */
+========================================================= */
 
 .hit-flash {
     position: absolute;
 
-    width: 72px;
-    height: 72px;
+    width: 68px;
+    height: 68px;
 
     border-radius: 50%;
 
     transform:
-        translate(-50%,-50%)
+        translate(-50%, -50%)
         scale(.1);
 
     z-index: 600;
@@ -751,21 +800,23 @@ button {
             circle,
             white 0%,
             #b9f7ff 20%,
-            #62dbff 37%,
-            rgba(77,163,255,.30) 58%,
+            #62dbff 38%,
+            rgba(77,163,255,.28) 58%,
             transparent 72%
         );
 
     animation:
-        hitFlash .30s ease-out forwards;
+        hitFlash .30s ease-out
+        forwards;
 }
 
 @keyframes hitFlash {
+
     from {
         opacity: 1;
 
         transform:
-            translate(-50%,-50%)
+            translate(-50%, -50%)
             scale(.1);
     }
 
@@ -773,61 +824,49 @@ button {
         opacity: 0;
 
         transform:
-            translate(-50%,-50%)
+            translate(-50%, -50%)
             scale(1.7);
     }
 }
 
-/* =====================================================
-   КОНФЕТЫ НА ПЕРЕДНЕМ ПЛАНЕ
-===================================================== */
+/* =========================================================
+   ЛЕТЯЩИЕ КОНФЕТЫ
+========================================================= */
 
-#reward {
+#flyingCandy {
     position: fixed;
 
     left: 0;
     top: 0;
 
-    width: clamp(240px,27vw,420px);
+    width: 1px;
 
-    z-index: 1300;
+    z-index: 1800;
 
     opacity: 0;
 
     pointer-events: none;
 
     transform:
-        translate(-50%,-50%)
-        scale(.55);
+        translate(-50%, -50%)
+        scale(1);
 
     filter:
         drop-shadow(
-            0 18px 18px rgba(0,0,0,.32)
+            0 15px 17px rgba(0,0,0,.30)
         );
+
+    will-change:
+        left,
+        top,
+        width,
+        transform,
+        opacity;
 }
 
-/*
-   Координаты задаются JS.
-*/
-
-#reward.flying {
-    opacity: 1;
-
-    transition:
-        left .78s cubic-bezier(.2,.8,.25,1),
-        top .78s cubic-bezier(.2,.8,.25,1),
-        transform .78s cubic-bezier(.2,1.1,.3,1);
-}
-
-#reward.arrived {
-    transform:
-        translate(-50%,-50%)
-        scale(1);
-}
-
-/* =====================================================
-   ЗАБРАТЬ КОНФЕТЫ
-===================================================== */
+/* =========================================================
+   КНОПКА
+========================================================= */
 
 #collectBtn {
     position: absolute;
@@ -836,10 +875,10 @@ button {
     top: 72%;
 
     transform:
-        translate(-50%,15px)
-        scale(.9);
+        translate(-50%, 12px)
+        scale(.92);
 
-    z-index: 1400;
+    z-index: 2000;
 
     min-width: 275px;
 
@@ -860,7 +899,7 @@ button {
     color: #542c57;
 
     font-size:
-        clamp(20px,2.2vw,29px);
+        clamp(20px, 2.1vw, 29px);
 
     font-weight: 900;
 
@@ -869,7 +908,6 @@ button {
         inset 0 2px 0 rgba(255,255,255,.65);
 
     opacity: 0;
-
     visibility: hidden;
 
     cursor: pointer;
@@ -884,21 +922,22 @@ button {
     visibility: visible;
 
     transform:
-        translate(-50%,0)
+        translate(-50%, 0)
         scale(1);
 }
 
 #collectBtn:hover {
     transform:
-        translate(-50%,0)
+        translate(-50%, 0)
         scale(1.04);
 }
 
-/* =====================================================
-   МОБИЛЬНЫЕ
-===================================================== */
+/* =========================================================
+   АДАПТАЦИЯ
+========================================================= */
 
 @media(max-width:720px) {
+
     .setup-card {
         padding: 22px 18px;
     }
@@ -920,9 +959,7 @@ button {
 
 <div id="game">
 
-    <!-- =================================================
-         НАСТРОЙКА
-    ================================================== -->
+    <!-- НАСТРОЙКА -->
 
     <div id="setupScreen">
 
@@ -933,8 +970,8 @@ button {
             </div>
 
             <div class="setup-subtitle">
-                Выбери буквы, из которых будут составлены слоги.
-                Можно выбрать до 8 букв.
+                Выбери буквы для слогов.
+                Всего можно выбрать до 8 букв.
             </div>
 
             <div class="counter-wrap">
@@ -1031,16 +1068,16 @@ button {
             <button
                 class="start-btn"
                 id="startBtn">
+
                 Начать игру
+
             </button>
 
         </div>
 
     </div>
 
-    <!-- =================================================
-         ИГРА
-    ================================================== -->
+    <!-- ИГРА -->
 
     <div id="playScreen">
 
@@ -1053,11 +1090,13 @@ button {
         <div id="laser"></div>
 
         <div id="gunWrap">
+
             <img
                 id="gun"
                 src="pistolet.png"
-                alt=""
-                draggable="false">
+                draggable="false"
+                alt="">
+
         </div>
 
         <div id="crosshair">
@@ -1065,10 +1104,10 @@ button {
         </div>
 
         <img
-            id="reward"
+            id="flyingCandy"
             src="konfet.png"
-            alt=""
-            draggable="false">
+            draggable="false"
+            alt="">
 
         <button id="collectBtn">
             Забрать конфеты
@@ -1080,9 +1119,9 @@ button {
 
 <script>
 
-/* =====================================================
-   СОСТОЯНИЕ
-===================================================== */
+/* =========================================================
+   НАСТРОЙКИ
+========================================================= */
 
 const MAX_LETTERS = 8;
 
@@ -1099,71 +1138,132 @@ const vowelLetters = [
     "И","Е","Ё","Ю","Я"
 ];
 
-let selectedConsonants = new Set();
-let selectedVowels = new Set();
+const PUMPKIN_POSITIONS = [
 
-let syllableType = "open";
+    {
+        x: 19,
+        y: 57,
+        scale: .88
+    },
+
+    {
+        x: 40,
+        y: 49,
+        scale: .82
+    },
+
+    {
+        x: 63,
+        y: 50,
+        scale: .84
+    },
+
+    {
+        x: 84,
+        y: 58,
+        scale: .90
+    }
+
+];
+
+/* =========================================================
+   СОСТОЯНИЕ
+========================================================= */
+
+let selectedConsonants =
+    new Set();
+
+let selectedVowels =
+    new Set();
+
+let syllableType =
+    "open";
 
 let syllables = [];
 
 let gameLocked = false;
 
-let currentCandyPumpkin = null;
+let candySlotIndex = null;
 
-let lastMouseX = window.innerWidth / 2;
-let lastMouseY = window.innerHeight / 2;
+let gunAngle = 0;
 
-let pumpkinCounter = 0;
-
-/* =====================================================
+/* =========================================================
    DOM
-===================================================== */
+========================================================= */
 
 const setupScreen =
-    document.getElementById("setupScreen");
+    document.getElementById(
+        "setupScreen"
+    );
 
 const playScreen =
-    document.getElementById("playScreen");
+    document.getElementById(
+        "playScreen"
+    );
 
 const consonantsBox =
-    document.getElementById("consonants");
+    document.getElementById(
+        "consonants"
+    );
 
 const vowelsBox =
-    document.getElementById("vowels");
+    document.getElementById(
+        "vowels"
+    );
 
 const selectedCount =
-    document.getElementById("selectedCount");
+    document.getElementById(
+        "selectedCount"
+    );
 
 const errorBox =
-    document.getElementById("error");
+    document.getElementById(
+        "error"
+    );
 
 const startBtn =
-    document.getElementById("startBtn");
+    document.getElementById(
+        "startBtn"
+    );
 
 const settingsBtn =
-    document.getElementById("settingsBtn");
+    document.getElementById(
+        "settingsBtn"
+    );
 
 const pumpkinField =
-    document.getElementById("pumpkinField");
+    document.getElementById(
+        "pumpkinField"
+    );
 
 const gunWrap =
-    document.getElementById("gunWrap");
+    document.getElementById(
+        "gunWrap"
+    );
 
 const crosshair =
-    document.getElementById("crosshair");
+    document.getElementById(
+        "crosshair"
+    );
 
 const laser =
-    document.getElementById("laser");
+    document.getElementById(
+        "laser"
+    );
 
-const reward =
-    document.getElementById("reward");
+const flyingCandy =
+    document.getElementById(
+        "flyingCandy"
+    );
 
 const collectBtn =
-    document.getElementById("collectBtn");
+    document.getElementById(
+        "collectBtn"
+    );
 
-/* =====================================================
+/* =========================================================
    БУКВЫ
-===================================================== */
+========================================================= */
 
 function createLetterButtons(
     letters,
@@ -1174,7 +1274,9 @@ function createLetterButtons(
     letters.forEach(letter => {
 
         const button =
-            document.createElement("button");
+            document.createElement(
+                "button"
+            );
 
         button.className =
             "letter-btn";
@@ -1193,7 +1295,9 @@ function createLetterButtons(
             () => toggleLetter(button)
         );
 
-        container.appendChild(button);
+        container.appendChild(
+            button
+        );
 
     });
 
@@ -1219,7 +1323,9 @@ function toggleLetter(button) {
         button.dataset.letter;
 
     const set =
-        button.dataset.group === "consonant"
+        button.dataset.group ===
+        "consonant"
+
         ? selectedConsonants
         : selectedVowels;
 
@@ -1243,7 +1349,6 @@ function toggleLetter(button) {
                 "Можно выбрать максимум 8 букв.";
 
             return;
-
         }
 
         set.add(letter);
@@ -1251,11 +1356,9 @@ function toggleLetter(button) {
         button.classList.add(
             "selected"
         );
-
     }
 
     updateCounter();
-
 }
 
 function updateCounter() {
@@ -1265,13 +1368,12 @@ function updateCounter() {
         selectedVowels.size;
 
     selectedCount.textContent =
-        ` ${total} / ${MAX_LETTERS}`;
-
+        ` ${total} / 8`;
 }
 
-/* =====================================================
+/* =========================================================
    ТИП СЛОГОВ
-===================================================== */
+========================================================= */
 
 document
 .querySelectorAll(".type-btn")
@@ -1282,12 +1384,16 @@ document
         () => {
 
             document
-            .querySelectorAll(".type-btn")
-            .forEach(btn =>
+            .querySelectorAll(
+                ".type-btn"
+            )
+            .forEach(btn => {
+
                 btn.classList.remove(
                     "selected"
-                )
-            );
+                );
+
+            });
 
             button.classList.add(
                 "selected"
@@ -1301,9 +1407,9 @@ document
 
 });
 
-/* =====================================================
-   СОЗДАЁМ СЛОГИ
-===================================================== */
+/* =========================================================
+   СОЗДАНИЕ СЛОГОВ
+========================================================= */
 
 function buildSyllables() {
 
@@ -1323,14 +1429,20 @@ function buildSyllables() {
                 syllableType === "open" ||
                 syllableType === "mixed"
             ) {
-                result.push(c + v);
+
+                result.push(
+                    c + v
+                );
             }
 
             if (
                 syllableType === "closed" ||
                 syllableType === "mixed"
             ) {
-                result.push(v + c);
+
+                result.push(
+                    v + c
+                );
             }
 
         });
@@ -1340,12 +1452,21 @@ function buildSyllables() {
     return shuffle(
         [...new Set(result)]
     );
-
 }
 
-/* =====================================================
+function getRandomSyllable() {
+
+    return syllables[
+        Math.floor(
+            Math.random() *
+            syllables.length
+        )
+    ];
+}
+
+/* =========================================================
    СТАРТ
-===================================================== */
+========================================================= */
 
 startBtn.addEventListener(
     "click",
@@ -1364,7 +1485,6 @@ function startGame() {
             "Выбери хотя бы одну согласную.";
 
         return;
-
     }
 
     if (
@@ -1375,7 +1495,6 @@ function startGame() {
             "Выбери хотя бы одну гласную.";
 
         return;
-
     }
 
     syllables =
@@ -1393,121 +1512,82 @@ function startGame() {
         "reward-mode"
     );
 
-    startField();
-
+    createInitialField();
 }
 
-/* =====================================================
-   ПОЗИЦИИ
-===================================================== */
+/* =========================================================
+   СТРОГО ЧЕТЫРЕ ПОЗИЦИИ
+========================================================= */
 
-/*
-   Первые 4 используются при старте.
-
-   Остальные - только после успешного
-   нахождения конфет.
-*/
-
-const positions = [
-
-    {x:18, y:57, scale:.88},
-    {x:39, y:48, scale:.82},
-    {x:62, y:49, scale:.84},
-    {x:83, y:58, scale:.90},
-
-    {x:28, y:68, scale:.88},
-    {x:73, y:68, scale:.88},
-    {x:50, y:61, scale:.87},
-    {x:10, y:69, scale:.82},
-    {x:90, y:69, scale:.82},
-    {x:50, y:38, scale:.75}
-
-];
-
-/* =====================================================
-   НАЧАЛО ПОЛЯ
-===================================================== */
-
-function startField() {
+function createInitialField() {
 
     pumpkinField.innerHTML = "";
-
-    pumpkinCounter = 0;
-
-    currentCandyPumpkin = null;
 
     gameLocked = false;
 
     /*
-       СТРОГО ЧЕТЫРЕ.
+       РОВНО ЧЕТЫРЕ.
     */
 
     for (
-        let i = 0;
-        i < 4;
-        i++
+        let index = 0;
+        index < 4;
+        index++
     ) {
 
-        createPumpkin(
-            positions[i]
+        createPumpkinAtSlot(
+            index
+        );
+    }
+
+    hideReward();
+
+    chooseCandySlot();
+}
+
+/* =========================================================
+   СОЗДАТЬ ТЫКВУ В КОНКРЕТНОМ СЛОТЕ
+========================================================= */
+
+function createPumpkinAtSlot(
+    slotIndex
+) {
+
+    /*
+       Если на этой позиции уже
+       что-то было, удаляем.
+    */
+
+    const old =
+        pumpkinField.querySelector(
+            `[data-slot="${slotIndex}"]`
         );
 
+    if (old) {
+        old.remove();
     }
 
-    chooseCandyPumpkin();
-
-}
-
-/* =====================================================
-   НОВАЯ ПОЗИЦИЯ
-===================================================== */
-
-function getNextPosition() {
-
-    /*
-       pumpkinCounter уже включает
-       четыре стартовые тыквы.
-    */
-
-    if (
-        pumpkinCounter <
-        positions.length
-    ) {
-
-        return positions[
-            pumpkinCounter
+    const position =
+        PUMPKIN_POSITIONS[
+            slotIndex
         ];
 
-    }
-
-    /*
-       Только для очень долгой игры.
-    */
-
-    return {
-        x: 14 + Math.random() * 72,
-        y: 39 + Math.random() * 31,
-        scale: .76 + Math.random() * .13
-    };
-
-}
-
-/* =====================================================
-   СОЗДАНИЕ ТЫКВЫ
-===================================================== */
-
-function createPumpkin(position) {
-
     const slot =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
     slot.className =
         "pumpkin-slot";
 
-    slot.dataset.hasCandy = "0";
+    slot.dataset.slot =
+        String(slotIndex);
 
-    slot.dataset.id =
-        String(++pumpkinCounter);
+    slot.dataset.hasCandy =
+        "0";
+
+    slot.dataset.opened =
+        "0";
 
     slot.style.left =
         position.x + "%";
@@ -1515,25 +1595,33 @@ function createPumpkin(position) {
     slot.style.top =
         position.y + "%";
 
-    slot.style.scale =
-        position.scale;
+    slot.style.setProperty(
+        "--pumpkin-scale",
+        position.scale
+    );
 
-    /* конфеты */
+    /* КОНФЕТЫ */
 
     const candy =
-        document.createElement("img");
+        document.createElement(
+            "img"
+        );
 
-    candy.src = "konfet.png";
+    candy.src =
+        "konfet.png";
 
     candy.className =
         "candy-inside";
 
-    candy.draggable = false;
+    candy.draggable =
+        false;
 
-    /* половинки */
+    /* ЛЕВАЯ ПОЛОВИНКА */
 
     const left =
-        document.createElement("img");
+        document.createElement(
+            "img"
+        );
 
     left.src =
         "pumpkin_left.png";
@@ -1541,10 +1629,15 @@ function createPumpkin(position) {
     left.className =
         "half left-half";
 
-    left.draggable = false;
+    left.draggable =
+        false;
+
+    /* ПРАВАЯ */
 
     const right =
-        document.createElement("img");
+        document.createElement(
+            "img"
+        );
 
     right.src =
         "pumpkin_right.png";
@@ -1552,12 +1645,15 @@ function createPumpkin(position) {
     right.className =
         "half right-half";
 
-    right.draggable = false;
+    right.draggable =
+        false;
 
-    /* целая */
+    /* ЦЕЛАЯ */
 
     const whole =
-        document.createElement("img");
+        document.createElement(
+            "img"
+        );
 
     whole.src =
         "tikva.png";
@@ -1565,29 +1661,47 @@ function createPumpkin(position) {
     whole.className =
         "whole-pumpkin";
 
-    whole.draggable = false;
+    whole.draggable =
+        false;
 
-    /* слог */
+    /* СЛОГ */
 
-    const syllable =
-        document.createElement("div");
+    const text =
+        document.createElement(
+            "div"
+        );
 
-    syllable.className =
+    text.className =
         "syllable";
 
-    syllable.textContent =
+    text.textContent =
         getRandomSyllable();
 
     /*
-       Порядок слоёв:
-       конфеты -> половинки -> целая -> текст.
+       Порядок важен:
+       конфеты находятся внутри,
+       половинки поверх них.
     */
 
-    slot.appendChild(candy);
-    slot.appendChild(left);
-    slot.appendChild(right);
-    slot.appendChild(whole);
-    slot.appendChild(syllable);
+    slot.appendChild(
+        candy
+    );
+
+    slot.appendChild(
+        left
+    );
+
+    slot.appendChild(
+        right
+    );
+
+    slot.appendChild(
+        whole
+    );
+
+    slot.appendChild(
+        text
+    );
 
     slot.addEventListener(
         "pointerenter",
@@ -1595,9 +1709,7 @@ function createPumpkin(position) {
 
             if (
                 gameLocked ||
-                slot.classList.contains(
-                    "opened"
-                )
+                slot.dataset.opened === "1"
             ) {
                 return;
             }
@@ -1609,7 +1721,6 @@ function createPumpkin(position) {
             crosshair.classList.add(
                 "on-target"
             );
-
         }
     );
 
@@ -1624,7 +1735,6 @@ function createPumpkin(position) {
             crosshair.classList.remove(
                 "on-target"
             );
-
         }
     );
 
@@ -1634,9 +1744,7 @@ function createPumpkin(position) {
 
             if (
                 gameLocked ||
-                slot.classList.contains(
-                    "opened"
-                )
+                slot.dataset.opened === "1"
             ) {
                 return;
             }
@@ -1644,57 +1752,41 @@ function createPumpkin(position) {
             event.preventDefault();
             event.stopPropagation();
 
-            /*
-               Используем именно координаты
-               прицела/мыши, а не центр тыквы.
-            */
-
             shootPumpkin(
                 slot,
                 event.clientX,
                 event.clientY
             );
-
         }
     );
 
-    pumpkinField.appendChild(slot);
-
+    pumpkinField.appendChild(
+        slot
+    );
 }
 
-/* =====================================================
-   СЛУЧАЙНЫЙ СЛОГ
-===================================================== */
+/* =========================================================
+   СПРЯТАТЬ КОНФЕТЫ
+========================================================= */
 
-function getRandomSyllable() {
+function chooseCandySlot() {
 
-    return syllables[
-        Math.floor(
-            Math.random() *
-            syllables.length
-        )
-    ];
+    /*
+       В начале каждого нового поиска
+       ВСЕ 4 тыквы целые.
 
-}
+       Поэтому конфеты могут оказаться
+       в любой из четырёх.
+    */
 
-/* =====================================================
-   ГДЕ СПРЯТАНЫ КОНФЕТЫ
-===================================================== */
-
-function chooseCandyPumpkin() {
-
-    const available =
+    const slots =
         [
             ...document.querySelectorAll(
-                ".pumpkin-slot:not(.opened)"
+                ".pumpkin-slot"
             )
         ];
 
-    /*
-       Сбрасываем старый тайник.
-    */
-
-    available.forEach(slot => {
+    slots.forEach(slot => {
 
         slot.dataset.hasCandy =
             "0";
@@ -1705,29 +1797,26 @@ function chooseCandyPumpkin() {
 
     });
 
-    if (
-        available.length === 0
-    ) {
-        return;
+    candySlotIndex =
+        Math.floor(
+            Math.random() * 4
+        );
+
+    const candyPumpkin =
+        pumpkinField.querySelector(
+            `[data-slot="${candySlotIndex}"]`
+        );
+
+    if (candyPumpkin) {
+
+        candyPumpkin.dataset.hasCandy =
+            "1";
     }
-
-    currentCandyPumpkin =
-        available[
-            Math.floor(
-                Math.random() *
-                available.length
-            )
-        ];
-
-    currentCandyPumpkin
-        .dataset.hasCandy =
-        "1";
-
 }
 
-/* =====================================================
+/* =========================================================
    ВЫСТРЕЛ
-===================================================== */
+========================================================= */
 
 function shootPumpkin(
     slot,
@@ -1740,22 +1829,13 @@ function shootPumpkin(
     }
 
     if (
-        slot.classList.contains(
-            "opened"
-        )
+        slot.dataset.opened === "1"
     ) {
         return;
     }
 
-    /*
-       Сразу блокируем конкретную тыкву,
-       чтобы двойной клик не запускал
-       два выстрела.
-    */
-
-    slot.classList.add(
-        "opened"
-    );
+    slot.dataset.opened =
+        "1";
 
     slot.classList.remove(
         "targeted"
@@ -1764,6 +1844,11 @@ function shootPumpkin(
     crosshair.classList.remove(
         "on-target"
     );
+
+    /*
+       Луч от дула точно
+       к месту клика.
+    */
 
     fireLaser(
         hitX,
@@ -1785,146 +1870,181 @@ function shootPumpkin(
         "recoil"
     );
 
-    const found =
-        slot.dataset.hasCandy === "1";
+    const foundCandy =
+        slot.dataset.hasCandy ===
+        "1";
 
-    if (!found) {
+    /*
+       ВАЖНО:
+       если там конфеты,
+       класс has-candy ставится
+       ДО открытия.
 
-        /*
-           ПУСТО.
+       Значит конфеты уже лежат
+       внутри в момент,
+       когда расходятся половинки.
+    */
 
-           Ничего больше не происходит.
-           Половинки остаются на поляне.
-           Новая тыква НЕ появляется.
-        */
+    if (foundCandy) {
 
-        return;
-
+        slot.classList.add(
+            "has-candy"
+        );
     }
 
     /*
-       НАШЛИ КОНФЕТЫ.
+       Открываем тыкву.
+    */
+
+    requestAnimationFrame(
+        () => {
+
+            slot.classList.add(
+                "opened"
+            );
+
+        }
+    );
+
+    /*
+       ПУСТАЯ ТЫКВА.
+
+       Она остаётся разбитой.
+       Ничего не заменяем.
+    */
+
+    if (!foundCandy) {
+        return;
+    }
+
+    /*
+       Нашли конфеты.
+       Блокируем дальнейшую стрельбу.
     */
 
     gameLocked = true;
 
-    slot.classList.add(
-        "has-candy"
-    );
-
     /*
-       Сначала даём ребёнку хорошо
-       увидеть конфеты ВНУТРИ.
+       Не ждём полторы секунды.
+
+       Половинки начали расходиться,
+       конфеты уже видно.
+
+       Через небольшую паузу
+       они начинают медленно
+       вылетать из тыквы.
     */
 
     setTimeout(
         () => {
 
-            flyCandyFromPumpkin(
+            flyCandyFrom(
                 slot
             );
 
         },
-        1450
+        420
     );
-
 }
 
-/* =====================================================
-   КОНФЕТЫ ВЫЛЕТАЮТ ИЗ КОНКРЕТНОЙ ТЫКВЫ
-===================================================== */
+/* =========================================================
+   ПЛАВНЫЙ ВЫЛЕТ КОНФЕТ
+========================================================= */
 
-function flyCandyFromPumpkin(slot) {
+function flyCandyFrom(slot) {
 
-    const candyInside =
+    const insideCandy =
         slot.querySelector(
             ".candy-inside"
         );
 
-    const candyRect =
-        candyInside
+    const rect =
+        insideCandy
         .getBoundingClientRect();
 
-    /*
-       Стартовая точка точно там,
-       где сейчас находятся конфеты
-       внутри тыквы.
-    */
-
     const startX =
-        candyRect.left +
-        candyRect.width / 2;
+        rect.left +
+        rect.width / 2;
 
     const startY =
-        candyRect.top +
-        candyRect.height / 2;
-
-    slot.classList.add(
-        "candy-leaving"
-    );
-
-    reward.classList.remove(
-        "flying",
-        "arrived"
-    );
+        rect.top +
+        rect.height / 2;
 
     /*
-       Ставим копию конфет в точку,
-       откуда они вылетают.
+       Получаем реальный размер
+       конфет внутри тыквы.
     */
 
-    reward.style.transition =
+    const startWidth =
+        Math.max(
+            rect.width,
+            55
+        );
+
+    /*
+       Копия начинается ТОЧНО
+       на месте конфет внутри.
+    */
+
+    flyingCandy.style.transition =
         "none";
 
-    reward.style.left =
+    flyingCandy.style.left =
         startX + "px";
 
-    reward.style.top =
+    flyingCandy.style.top =
         startY + "px";
 
-    reward.style.opacity =
+    flyingCandy.style.width =
+        startWidth + "px";
+
+    flyingCandy.style.opacity =
         "1";
 
-    reward.style.transform =
-        "translate(-50%,-50%) scale(.42)";
-
-    void reward.offsetWidth;
+    flyingCandy.style.transform =
+        "translate(-50%, -50%) scale(1)";
 
     /*
-       Теперь включаем переход.
+       Сначала копия занимает
+       то же место.
+
+       Теперь можно скрыть оригинал.
     */
-
-    reward.style.transition = "";
-
-    reward.classList.add(
-        "flying"
-    );
-
-    /*
-       Центральная точка назначения.
-    */
-
-    const destinationX =
-        window.innerWidth * .50;
-
-    const destinationY =
-        window.innerHeight * .43;
 
     requestAnimationFrame(
         () => {
 
+            slot.classList.add(
+                "candy-flying"
+            );
+
             requestAnimationFrame(
                 () => {
 
-                    reward.style.left =
-                        destinationX + "px";
+                    /*
+                       Медленный,
+                       аккуратный полёт.
+                    */
 
-                    reward.style.top =
-                        destinationY + "px";
+                    flyingCandy.style.transition =
+                        [
+                            "left 1.35s cubic-bezier(.22,.75,.25,1)",
+                            "top 1.35s cubic-bezier(.22,.75,.25,1)",
+                            "width 1.35s cubic-bezier(.22,.75,.25,1)",
+                            "transform 1.35s cubic-bezier(.22,.75,.25,1)"
+                        ].join(",");
 
-                    reward.classList.add(
-                        "arrived"
-                    );
+                    flyingCandy.style.left =
+                        "50%";
+
+                    flyingCandy.style.top =
+                        "43%";
+
+                    flyingCandy.style.width =
+                        "clamp(230px, 24vw, 380px)";
+
+                    flyingCandy.style.transform =
+                        "translate(-50%, -50%) scale(1)";
 
                 }
             );
@@ -1933,8 +2053,8 @@ function flyCandyFromPumpkin(slot) {
     );
 
     /*
-       Во время полёта выключаем тир.
-       Возвращаем обычную мышь.
+       Выключаем тир.
+       Возвращаем обычную мышку.
     */
 
     playScreen.classList.remove(
@@ -1946,8 +2066,8 @@ function flyCandyFromPumpkin(slot) {
     );
 
     /*
-       Кнопка появляется только
-       после завершения полёта.
+       Кнопка только после того,
+       как конфеты долетели.
     */
 
     setTimeout(
@@ -1958,14 +2078,13 @@ function flyCandyFromPumpkin(slot) {
             );
 
         },
-        850
+        1400
     );
-
 }
 
-/* =====================================================
+/* =========================================================
    ЗАБРАТЬ КОНФЕТЫ
-===================================================== */
+========================================================= */
 
 collectBtn.addEventListener(
     "click",
@@ -1979,76 +2098,92 @@ collectBtn.addEventListener(
         );
 
         /*
-           Красиво уменьшаем конфеты.
+           Конфеты аккуратно исчезают.
         */
 
-        reward.style.transition =
-            "transform .32s ease, opacity .32s ease";
+        flyingCandy.style.transition =
+            "opacity .28s ease, transform .28s ease";
 
-        reward.style.transform =
-            "translate(-50%,-50%) scale(.2)";
-
-        reward.style.opacity =
+        flyingCandy.style.opacity =
             "0";
+
+        flyingCandy.style.transform =
+            "translate(-50%, -50%) scale(.75)";
 
         setTimeout(
             () => {
 
-                reward.classList.remove(
-                    "flying",
-                    "arrived"
-                );
-
-                reward.style.transition =
-                    "";
-
                 /*
-                   У старой найденной тыквы
-                   конфет больше нет.
+                   НОВЫЙ РАУНД.
+
+                   Проверяем все 4 позиции.
                 */
 
-                if (
-                    currentCandyPumpkin
+                for (
+                    let index = 0;
+                    index < 4;
+                    index++
                 ) {
 
-                    currentCandyPumpkin
-                        .dataset.hasCandy =
-                        "0";
-
-                    currentCandyPumpkin
-                        .classList.remove(
-                            "has-candy"
+                    const pumpkin =
+                        pumpkinField
+                        .querySelector(
+                            `[data-slot="${index}"]`
                         );
 
+                    if (!pumpkin) {
+                        continue;
+                    }
+
+                    /*
+                       Была разбита?
+
+                       Тогда на ЭТОМ ЖЕ
+                       месте создаём новую
+                       целую тыкву
+                       с новым слогом.
+                    */
+
+                    if (
+                        pumpkin.dataset.opened ===
+                        "1"
+                    ) {
+
+                        createPumpkinAtSlot(
+                            index
+                        );
+                    }
+
+                    /*
+                       Если в неё не стреляли,
+                       вообще её не трогаем.
+
+                       Остаётся:
+                       - та же тыква
+                       - тот же слог
+                       - та же позиция
+                    */
                 }
 
                 /*
-                   ТОЛЬКО ЗДЕСЬ
-                   появляется одна новая
-                   целая тыква.
+                   Теперь снова ровно
+                   четыре целые тыквы.
+
+                   Перепрятываем конфеты
+                   СРЕДИ ВСЕХ ЧЕТЫРЁХ.
+
+                   Поэтому они могут попасть
+                   и в старую тыкву,
+                   которую в прошлом раунде
+                   не трогали.
                 */
 
-                const newPosition =
-                    getNextPosition();
+                chooseCandySlot();
 
-                createPumpkin(
-                    newPosition
-                );
+                hideReward();
 
-                /*
-                   Теперь перепрятываем
-                   конфеты среди ВСЕХ
-                   целых тыкв.
-
-                   Старая непростреленная
-                   тоже может стать тайником.
-
-                   Новая тоже может.
-                */
-
-                chooseCandyPumpkin();
-
-                gameLocked = false;
+                gameLocked =
+                    false;
 
                 playScreen.classList.remove(
                     "reward-mode"
@@ -2059,25 +2194,39 @@ collectBtn.addEventListener(
                 );
 
             },
-            340
+            300
         );
 
     }
 );
 
-/* =====================================================
-   ПОВОРОТ ПИСТОЛЕТА
-===================================================== */
+/* =========================================================
+   СКРЫТЬ НАГРАДУ
+========================================================= */
+
+function hideReward() {
+
+    collectBtn.classList.remove(
+        "show"
+    );
+
+    flyingCandy.style.transition =
+        "none";
+
+    flyingCandy.style.opacity =
+        "0";
+
+    flyingCandy.style.width =
+        "1px";
+}
+
+/* =========================================================
+   ДВИЖЕНИЕ ПРИЦЕЛА
+========================================================= */
 
 playScreen.addEventListener(
     "pointermove",
     event => {
-
-        lastMouseX =
-            event.clientX;
-
-        lastMouseY =
-            event.clientY;
 
         if (gameLocked) {
             return;
@@ -2093,9 +2242,12 @@ playScreen.addEventListener(
             event.clientX,
             event.clientY
         );
-
     }
 );
+
+/* =========================================================
+   ПИСТОЛЕТ СМОТРИТ НА ПРИЦЕЛ
+========================================================= */
 
 function aimGunAt(
     targetX,
@@ -2103,7 +2255,10 @@ function aimGunAt(
 ) {
 
     /*
-       Центр вращения пистолета.
+       Для угла используем
+       геометрическую точку,
+       вокруг которой вращается
+       пистолет.
     */
 
     const rect =
@@ -2114,7 +2269,8 @@ function aimGunAt(
         rect.width / 2;
 
     const pivotY =
-        rect.bottom;
+        rect.top +
+        rect.height * .92;
 
     const dx =
         targetX - pivotX;
@@ -2125,7 +2281,10 @@ function aimGunAt(
     let angle =
         Math.atan2(
             dx,
-            Math.max(dy,80)
+            Math.max(
+                dy,
+                80
+            )
         ) *
         180 /
         Math.PI;
@@ -2139,80 +2298,128 @@ function aimGunAt(
             )
         );
 
-    gunWrap.dataset.angle =
+    gunAngle =
         angle;
 
     gunWrap.style.transform =
         `translateX(-50%) rotate(${angle}deg)`;
-
 }
 
-/* =====================================================
-   ТОЧНАЯ ТОЧКА ДУЛА
-===================================================== */
+/* =========================================================
+   ТОЧКА ДУЛА
+========================================================= */
 
 function getMuzzlePoint() {
 
-    const rect =
+    /*
+       ВАЖНО.
+
+       getBoundingClientRect()
+       уже учитывает вращение и поэтому
+       нельзя использовать его размеры
+       как локальную систему координат.
+
+       Берём исходные размеры элемента.
+    */
+
+    const baseWidth =
+        gunWrap.offsetWidth;
+
+    const baseHeight =
+        gunWrap.offsetHeight;
+
+    /*
+       Реальный pivot в координатах
+       страницы.
+    */
+
+    const wrapRect =
         gunWrap.getBoundingClientRect();
 
     /*
-       В PNG дуло находится по центру
-       примерно в верхней части картинки.
-
-       Эта точка рассчитывается
-       относительно самого пистолета.
+       Поскольку сам wrap центрирован
+       по горизонтали, нижняя центральная
+       область является нашей базой.
     */
 
     const pivotX =
-        rect.left +
-        rect.width / 2;
+        window.innerWidth / 2;
 
     const pivotY =
-        rect.bottom;
+        window.innerHeight -
+        window.innerHeight * .015 -
+        baseHeight * .08;
 
     /*
-       Расстояние от нижней точки
-       вращения до дула.
+       Точка дула в локальных
+       координатах PNG.
+
+       Дуло находится почти по центру
+       и примерно в 10% высоты картинки.
     */
 
-    const muzzleDistance =
-        rect.height * .78;
+    const localMuzzleX =
+        baseWidth * .50;
 
-    const angleDeg =
-        Number(
-            gunWrap.dataset.angle || 0
-        );
-
-    const angle =
-        angleDeg *
-        Math.PI / 180;
+    const localMuzzleY =
+        baseHeight * .10;
 
     /*
-       При 0 градусов дуло находится
-       строго над pivot.
+       Pivot внутри картинки.
     */
 
-    const muzzleX =
-        pivotX +
-        Math.sin(angle) *
-        muzzleDistance;
+    const localPivotX =
+        baseWidth * .50;
 
-    const muzzleY =
-        pivotY -
-        Math.cos(angle) *
-        muzzleDistance;
+    const localPivotY =
+        baseHeight * .92;
+
+    const vectorX =
+        localMuzzleX -
+        localPivotX;
+
+    const vectorY =
+        localMuzzleY -
+        localPivotY;
+
+    const radians =
+        gunAngle *
+        Math.PI /
+        180;
+
+    /*
+       Вращаем вектор дула
+       тем же углом, что пистолет.
+    */
+
+    const rotatedX =
+        vectorX *
+        Math.cos(radians) -
+        vectorY *
+        Math.sin(radians);
+
+    const rotatedY =
+        vectorX *
+        Math.sin(radians) +
+        vectorY *
+        Math.cos(radians);
 
     return {
-        x: muzzleX,
-        y: muzzleY
-    };
 
+        x:
+            pivotX +
+            rotatedX,
+
+        y:
+            pivotY +
+            rotatedY
+
+    };
 }
 
-/* =====================================================
-   ЛАЗЕР ОТ ДУЛА ДО ПРИЦЕЛА
-===================================================== */
+/* =========================================================
+   ЛАЗЕР
+========================================================= */
 
 function fireLaser(
     targetX,
@@ -2265,12 +2472,11 @@ function fireLaser(
     laser.classList.add(
         "fire"
     );
-
 }
 
-/* =====================================================
-   ВСПЫШКА
-===================================================== */
+/* =========================================================
+   ВСПЫШКА ПОПАДАНИЯ
+========================================================= */
 
 function createFlash(
     x,
@@ -2296,15 +2502,18 @@ function createFlash(
     );
 
     setTimeout(
-        () => flash.remove(),
+        () => {
+
+            flash.remove();
+
+        },
         350
     );
-
 }
 
-/* =====================================================
-   НАСТРОЙКИ
-===================================================== */
+/* =========================================================
+   ВЕРНУТЬСЯ В НАСТРОЙКИ
+========================================================= */
 
 settingsBtn.addEventListener(
     "click",
@@ -2322,26 +2531,16 @@ settingsBtn.addEventListener(
         pumpkinField.innerHTML =
             "";
 
-        collectBtn.classList.remove(
-            "show"
-        );
+        hideReward();
 
-        reward.classList.remove(
-            "flying",
-            "arrived"
-        );
-
-        reward.style.opacity =
-            "0";
-
-        gameLocked = false;
-
+        gameLocked =
+            false;
     }
 );
 
-/* =====================================================
-   SHUFFLE
-===================================================== */
+/* =========================================================
+   ПЕРЕМЕШИВАНИЕ
+========================================================= */
 
 function shuffle(array) {
 
@@ -2367,11 +2566,9 @@ function shuffle(array) {
             array[j],
             array[i]
         ];
-
     }
 
     return array;
-
 }
 
 </script>
