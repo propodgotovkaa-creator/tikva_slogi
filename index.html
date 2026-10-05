@@ -7,276 +7,248 @@
 
 <style>
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  user-select: none;
-  -webkit-user-select: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 html, body {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #10152d;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #10152d;
 }
 
 button {
-  font: inherit;
+    font: inherit;
 }
 
 #game {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  background:
-    linear-gradient(rgba(8,12,32,.08), rgba(8,12,32,.08)),
-    url("fon.png") center center / cover no-repeat;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: url("fon.png") center center / cover no-repeat;
 }
 
 /* =========================
-   ЭКРАН НАСТРОЙКИ
+   НАСТРОЙКИ
 ========================= */
 
 #setupScreen {
-  position: absolute;
-  inset: 0;
-  z-index: 1000;
+    position: absolute;
+    inset: 0;
+    z-index: 1000;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  padding: 24px;
+    padding: 24px;
 
-  background: rgba(8, 12, 35, 0.42);
-  backdrop-filter: blur(4px);
+    background: rgba(8, 12, 35, .42);
+    backdrop-filter: blur(4px);
 }
 
 .setup-card {
-  width: min(940px, 94vw);
-  max-height: 94vh;
-  overflow-y: auto;
+    width: min(940px, 94vw);
+    max-height: 94vh;
+    overflow-y: auto;
 
-  padding: 30px 34px 32px;
+    padding: 30px 34px 32px;
 
-  border: 1px solid rgba(255,255,255,.28);
-  border-radius: 32px;
+    border: 1px solid rgba(255,255,255,.28);
+    border-radius: 32px;
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(38, 32, 78, .92),
-      rgba(22, 28, 70, .88)
-    );
+    background:
+        linear-gradient(
+            145deg,
+            rgba(38,32,78,.94),
+            rgba(22,28,70,.91)
+        );
 
-  box-shadow:
-    0 25px 70px rgba(0,0,0,.38),
-    inset 0 1px 0 rgba(255,255,255,.18);
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.38),
+        inset 0 1px 0 rgba(255,255,255,.18);
 
-  color: white;
+    color: white;
 }
 
 .setup-title {
-  text-align: center;
-  font-size: clamp(28px, 3.4vw, 48px);
-  font-weight: 900;
-  margin-bottom: 8px;
-
-  color: #fff3c6;
-  text-shadow: 0 3px 10px rgba(0,0,0,.28);
+    text-align: center;
+    font-size: clamp(28px, 3.4vw, 48px);
+    font-weight: 900;
+    margin-bottom: 8px;
+    color: #fff3c6;
 }
 
 .setup-subtitle {
-  text-align: center;
-  font-size: clamp(14px, 1.4vw, 19px);
-  line-height: 1.4;
-  opacity: .88;
-  margin-bottom: 24px;
-}
-
-.counter {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  min-width: 135px;
-  padding: 9px 16px;
-  margin: 0 auto 24px;
-
-  border-radius: 999px;
-  background: rgba(255,255,255,.12);
-  border: 1px solid rgba(255,255,255,.18);
-
-  font-size: 17px;
-  font-weight: 800;
+    text-align: center;
+    font-size: clamp(14px, 1.4vw, 19px);
+    line-height: 1.4;
+    opacity: .88;
+    margin-bottom: 22px;
 }
 
 .counter-wrap {
-  text-align: center;
+    text-align: center;
+}
+
+.counter {
+    display: inline-flex;
+    padding: 9px 16px;
+    margin-bottom: 24px;
+
+    border-radius: 999px;
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.18);
+
+    font-size: 17px;
+    font-weight: 800;
 }
 
 .section {
-  margin-bottom: 24px;
+    margin-bottom: 24px;
 }
 
 .section-title {
-  font-size: 20px;
-  font-weight: 900;
-  margin-bottom: 12px;
-  color: #ffd87b;
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 12px;
+    color: #ffd87b;
 }
 
 .letters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .letter-btn {
-  width: 54px;
-  height: 54px;
+    width: 54px;
+    height: 54px;
 
-  border: 2px solid rgba(255,255,255,.20);
-  border-radius: 15px;
+    border: 2px solid rgba(255,255,255,.20);
+    border-radius: 15px;
 
-  background: rgba(255,255,255,.10);
-  color: white;
+    background: rgba(255,255,255,.10);
+    color: white;
 
-  font-size: 24px;
-  font-weight: 900;
+    font-size: 24px;
+    font-weight: 900;
 
-  cursor: pointer;
-
-  transition:
-    transform .15s ease,
-    background .15s ease,
-    border-color .15s ease,
-    box-shadow .15s ease;
+    cursor: pointer;
+    transition: .15s ease;
 }
 
 .letter-btn:hover {
-  transform: translateY(-2px);
-  background: rgba(255,255,255,.17);
+    transform: translateY(-2px);
+    background: rgba(255,255,255,.17);
 }
 
 .letter-btn.selected {
-  color: #37235d;
+    color: #37235d;
 
-  background: linear-gradient(
-    145deg,
-    #ffe76f,
-    #ffb941
-  );
+    background:
+        linear-gradient(
+            145deg,
+            #ffe76f,
+            #ffb941
+        );
 
-  border-color: #fff2a9;
+    border-color: #fff2a9;
 
-  box-shadow:
-    0 6px 18px rgba(255,185,65,.34),
-    inset 0 1px 0 rgba(255,255,255,.65);
+    box-shadow:
+        0 6px 18px rgba(255,185,65,.34);
 
-  transform: translateY(-2px);
+    transform: translateY(-2px);
 }
 
 .syllable-types {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
 }
 
 .type-btn {
-  min-height: 82px;
+    min-height: 82px;
+    padding: 12px;
 
-  padding: 12px 10px;
+    border: 2px solid rgba(255,255,255,.18);
+    border-radius: 18px;
 
-  border: 2px solid rgba(255,255,255,.18);
-  border-radius: 18px;
+    background: rgba(255,255,255,.09);
+    color: white;
 
-  background: rgba(255,255,255,.09);
-  color: white;
-
-  cursor: pointer;
-
-  transition: .18s ease;
+    cursor: pointer;
+    transition: .18s ease;
 }
 
 .type-btn strong {
-  display: block;
-  font-size: 18px;
-  margin-bottom: 5px;
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
 }
 
 .type-btn span {
-  font-size: 14px;
-  opacity: .78;
-}
-
-.type-btn:hover {
-  transform: translateY(-2px);
+    font-size: 14px;
+    opacity: .78;
 }
 
 .type-btn.selected {
-  background:
-    linear-gradient(
-      145deg,
-      rgba(114,219,255,.95),
-      rgba(91,139,255,.95)
-    );
+    background:
+        linear-gradient(
+            145deg,
+            rgba(114,219,255,.95),
+            rgba(91,139,255,.95)
+        );
 
-  border-color: #c8f4ff;
+    border-color: #c8f4ff;
 
-  box-shadow:
-    0 7px 22px rgba(77,160,255,.35);
+    box-shadow:
+        0 7px 22px rgba(77,160,255,.35);
 
-  transform: translateY(-2px);
+    transform: translateY(-2px);
 }
 
 #error {
-  min-height: 24px;
-  margin-top: 13px;
-
-  text-align: center;
-  color: #ffd0cf;
-  font-weight: 700;
-  font-size: 14px;
+    min-height: 24px;
+    margin-top: 13px;
+    text-align: center;
+    color: #ffd0cf;
+    font-weight: 700;
 }
 
 .start-btn {
-  display: block;
+    display: block;
 
-  width: min(350px, 100%);
-  min-height: 62px;
+    width: min(350px, 100%);
+    min-height: 62px;
 
-  margin: 7px auto 0;
+    margin: 7px auto 0;
 
-  border: 0;
-  border-radius: 20px;
+    border: 0;
+    border-radius: 20px;
 
-  background:
-    linear-gradient(
-      180deg,
-      #ffdb62,
-      #ff9e2f
-    );
+    background:
+        linear-gradient(
+            180deg,
+            #ffdb62,
+            #ff9e2f
+        );
 
-  color: #4a2756;
+    color: #4a2756;
 
-  font-size: 22px;
-  font-weight: 900;
+    font-size: 22px;
+    font-weight: 900;
 
-  cursor: pointer;
+    cursor: pointer;
 
-  box-shadow:
-    0 10px 28px rgba(255,151,38,.32),
-    inset 0 2px 0 rgba(255,255,255,.5);
-
-  transition: transform .15s ease;
-}
-
-.start-btn:hover {
-  transform: scale(1.025);
+    box-shadow:
+        0 10px 28px rgba(255,151,38,.32);
 }
 
 /* =========================
@@ -284,142 +256,154 @@ button {
 ========================= */
 
 #playScreen {
-  position: absolute;
-  inset: 0;
-  display: none;
-  overflow: hidden;
+    position: absolute;
+    inset: 0;
+    display: none;
+    overflow: hidden;
+    cursor: none;
 }
 
 #playScreen.active {
-  display: block;
-}
-
-/* небольшое затемнение по краям */
-#playScreen::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 20;
-
-  background:
-    radial-gradient(
-      ellipse at center,
-      transparent 42%,
-      rgba(5,8,25,.10) 100%
-    );
+    display: block;
 }
 
 /* =========================
-   КНОПКА НАСТРОЕК
+   НАСТРОЙКИ
 ========================= */
 
 #settingsBtn {
-  position: absolute;
-  top: 22px;
-  right: 22px;
-  z-index: 500;
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    z-index: 900;
 
-  width: 54px;
-  height: 54px;
+    width: 54px;
+    height: 54px;
 
-  border: 1px solid rgba(255,255,255,.30);
-  border-radius: 17px;
+    border: 1px solid rgba(255,255,255,.30);
+    border-radius: 17px;
 
-  background: rgba(24,25,65,.65);
-  backdrop-filter: blur(8px);
+    background: rgba(24,25,65,.72);
+    color: white;
 
-  color: white;
-  font-size: 25px;
+    font-size: 25px;
 
-  cursor: pointer;
-
-  box-shadow: 0 7px 20px rgba(0,0,0,.22);
-
-  transition: transform .15s ease;
-}
-
-#settingsBtn:hover {
-  transform: scale(1.06);
+    cursor: pointer;
 }
 
 /* =========================
-   ТЫКВЫ
+   ПОЛЕ
 ========================= */
 
 #pumpkinField {
-  position: absolute;
-  inset: 0;
-  z-index: 100;
+    position: absolute;
+    inset: 0;
+    z-index: 100;
 }
 
+/* =========================
+   ТЫКВА
+========================= */
+
 .pumpkin-slot {
-  position: absolute;
+    position: absolute;
 
-  width: clamp(170px, 18vw, 310px);
-  aspect-ratio: 1.36;
+    width: clamp(165px, 17vw, 290px);
+    aspect-ratio: 1.36;
 
-  transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 
-  cursor: crosshair;
+    cursor: none;
 }
 
 .whole-pumpkin {
-  position: absolute;
-  inset: 0;
+    position: absolute;
+    inset: 0;
 
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 
-  object-fit: contain;
+    object-fit: contain;
 
-  filter:
-    drop-shadow(0 14px 10px rgba(0,0,0,.24));
+    z-index: 20;
 
-  transition:
-    transform .18s ease,
-    filter .18s ease,
-    opacity .08s linear;
+    filter:
+        drop-shadow(
+            0 13px 10px rgba(0,0,0,.25)
+        );
+
+    transition:
+        opacity .08s linear,
+        transform .15s ease;
 }
 
-.pumpkin-slot:hover .whole-pumpkin {
-  transform: scale(1.035);
-
-  filter:
-    drop-shadow(0 15px 11px rgba(0,0,0,.27))
-    brightness(1.06);
+.pumpkin-slot.targeted
+.whole-pumpkin {
+    transform: scale(1.035);
+    filter:
+        brightness(1.08)
+        drop-shadow(
+            0 13px 12px rgba(0,0,0,.28)
+        );
 }
+
+/* =========================
+   СЛОГ
+========================= */
 
 .syllable {
-  position: absolute;
+    position: absolute;
 
-  left: 50%;
-  top: 56%;
+    left: 50%;
+    top: 56%;
 
-  transform: translate(-50%, -50%);
+    transform:
+        translate(-50%, -50%);
 
-  z-index: 8;
+    z-index: 30;
 
-  font-size: clamp(31px, 4vw, 60px);
-  line-height: 1;
-  font-weight: 1000;
+    font-size:
+        clamp(30px, 3.8vw, 58px);
 
-  color: #fff8db;
+    line-height: 1;
 
-  text-shadow:
-    0 3px 0 #8c3e12,
-    0 5px 10px rgba(0,0,0,.45);
+    font-weight: 1000;
 
-  pointer-events: none;
+    color: #fff8db;
+
+    text-shadow:
+        0 3px 0 #8c3e12,
+        0 5px 10px rgba(0,0,0,.45);
+
+    pointer-events: none;
 }
 
-.pumpkin-slot.opened {
-  cursor: default;
-}
+/* =========================
+   КОНФЕТЫ ВНУТРИ ТЫКВЫ
+========================= */
 
-.pumpkin-slot.opened .whole-pumpkin,
-.pumpkin-slot.opened .syllable {
-  opacity: 0;
+.candy-inside {
+    position: absolute;
+
+    left: 50%;
+    top: 53%;
+
+    width: 47%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(.7);
+
+    opacity: 0;
+
+    z-index: 14;
+
+    pointer-events: none;
+
+    filter:
+        drop-shadow(
+            0 7px 8px rgba(0,0,0,.25)
+        );
 }
 
 /* =========================
@@ -427,230 +411,128 @@ button {
 ========================= */
 
 .half {
-  position: absolute;
+    position: absolute;
 
-  top: 0;
+    top: 0;
 
-  width: 54%;
-  height: 100%;
+    width: 54%;
+    height: 100%;
 
-  object-fit: contain;
+    object-fit: contain;
 
-  opacity: 0;
+    opacity: 0;
 
-  pointer-events: none;
+    z-index: 18;
 
-  filter: drop-shadow(0 12px 9px rgba(0,0,0,.24));
+    pointer-events: none;
+
+    filter:
+        drop-shadow(
+            0 12px 9px rgba(0,0,0,.25)
+        );
 }
 
 .left-half {
-  left: 23%;
-
-  transform:
-    translateX(0)
-    rotate(0deg)
-    scale(.98);
+    left: 23%;
 }
 
 .right-half {
-  right: 23%;
-
-  transform:
-    translateX(0)
-    rotate(0deg)
-    scale(.98);
+    right: 23%;
 }
 
-.pumpkin-slot.opened .left-half {
-  animation: openLeft .58s cubic-bezier(.22,.85,.28,1.05) forwards;
+/* цельная тыква исчезает */
+
+.pumpkin-slot.opened
+.whole-pumpkin,
+
+.pumpkin-slot.opened
+.syllable {
+    opacity: 0;
 }
 
-.pumpkin-slot.opened .right-half {
-  animation: openRight .58s cubic-bezier(.22,.85,.28,1.05) forwards;
+/* половинки появляются */
+
+.pumpkin-slot.opened
+.left-half {
+    animation:
+        openLeft .62s
+        cubic-bezier(.22,.85,.28,1.05)
+        forwards;
+}
+
+.pumpkin-slot.opened
+.right-half {
+    animation:
+        openRight .62s
+        cubic-bezier(.22,.85,.28,1.05)
+        forwards;
 }
 
 @keyframes openLeft {
-  0% {
-    opacity: 1;
-    transform:
-      translateX(0)
-      rotate(0deg)
-      scale(.98);
-  }
 
-  100% {
-    opacity: 1;
-    transform:
-      translateX(-54%)
-      rotate(-10deg)
-      scale(.98);
-  }
+    0% {
+        opacity: 1;
+
+        transform:
+            translateX(0)
+            rotate(0deg);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateX(-53%)
+            rotate(-10deg);
+    }
 }
 
 @keyframes openRight {
-  0% {
-    opacity: 1;
-    transform:
-      translateX(0)
-      rotate(0deg)
-      scale(.98);
-  }
 
-  100% {
-    opacity: 1;
-    transform:
-      translateX(54%)
-      rotate(10deg)
-      scale(.98);
-  }
+    0% {
+        opacity: 1;
+
+        transform:
+            translateX(0)
+            rotate(0deg);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateX(53%)
+            rotate(10deg);
+    }
 }
 
-/* =========================
-   КОНФЕТЫ
-========================= */
+/* конфеты видны между половинками */
 
-.candy {
-  position: absolute;
+.pumpkin-slot.opened.has-candy
+.candy-inside {
 
-  left: 50%;
-  top: 52%;
-
-  width: 60%;
-
-  transform:
-    translate(-50%, -50%)
-    scale(.2);
-
-  opacity: 0;
-
-  z-index: -1;
-  pointer-events: none;
-
-  filter:
-    drop-shadow(0 7px 10px rgba(0,0,0,.22));
+    animation:
+        revealCandy .55s .20s
+        ease forwards;
 }
 
-.pumpkin-slot.opened.has-candy .candy {
-  animation: candyAppear .58s .26s cubic-bezier(.2,1.3,.35,1) forwards;
-}
+@keyframes revealCandy {
 
-@keyframes candyAppear {
-  0% {
-    opacity: 0;
-    transform:
-      translate(-50%, -40%)
-      scale(.2);
-  }
+    from {
+        opacity: 0;
 
-  70% {
-    opacity: 1;
-    transform:
-      translate(-50%, -58%)
-      scale(1.08);
-  }
+        transform:
+            translate(-50%, -50%)
+            scale(.5);
+    }
 
-  100% {
-    opacity: 1;
-    transform:
-      translate(-50%, -55%)
-      scale(1);
-  }
-}
+    to {
+        opacity: 1;
 
-/* =========================
-   ВЫСТРЕЛ
-========================= */
-
-#laser {
-  position: absolute;
-
-  height: 7px;
-
-  border-radius: 999px;
-
-  transform-origin: 0 50%;
-
-  opacity: 0;
-
-  z-index: 310;
-  pointer-events: none;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(89,220,255,.25),
-      #92f5ff,
-      white
-    );
-
-  box-shadow:
-    0 0 9px #66e8ff,
-    0 0 20px #55cfff,
-    0 0 34px rgba(71,190,255,.8);
-}
-
-#laser.fire {
-  animation: laserFire .16s linear;
-}
-
-@keyframes laserFire {
-  0% {
-    opacity: 0;
-  }
-
-  15% {
-    opacity: 1;
-  }
-
-  70% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-.hit-flash {
-  position: absolute;
-
-  width: 80px;
-  height: 80px;
-
-  border-radius: 50%;
-
-  transform: translate(-50%, -50%) scale(.1);
-
-  z-index: 330;
-  pointer-events: none;
-
-  background:
-    radial-gradient(
-      circle,
-      white 0%,
-      #b9f7ff 18%,
-      #62dbff 34%,
-      rgba(77,163,255,.35) 55%,
-      transparent 72%
-    );
-
-  animation: flash .32s ease-out forwards;
-}
-
-@keyframes flash {
-  0% {
-    opacity: 1;
-    transform:
-      translate(-50%, -50%)
-      scale(.1);
-  }
-
-  100% {
-    opacity: 0;
-    transform:
-      translate(-50%, -50%)
-      scale(1.8);
-  }
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
 }
 
 /* =========================
@@ -658,161 +540,420 @@ button {
 ========================= */
 
 #gunWrap {
-  position: absolute;
+    position: absolute;
 
-  left: 50%;
-  bottom: -10%;
+    left: 50%;
 
-  width: clamp(170px, 18vw, 315px);
-  height: clamp(270px, 34vh, 490px);
+    /*
+       Подняли выше относительно
+       предыдущей версии
+    */
+    bottom: -2%;
 
-  transform:
-    translateX(-50%)
-    rotate(0deg);
+    width:
+        clamp(190px, 19vw, 325px);
 
-  transform-origin: 50% 100%;
+    height:
+        clamp(320px, 42vh, 520px);
 
-  z-index: 300;
+    transform:
+        translateX(-50%)
+        rotate(0deg);
 
-  pointer-events: none;
+    transform-origin:
+        50% 100%;
 
-  transition: transform .055s linear;
+    z-index: 400;
+
+    pointer-events: none;
 }
 
 #gun {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 
-  object-fit: contain;
-  object-position: bottom center;
+    object-fit: contain;
+    object-position: bottom center;
 
-  filter:
-    drop-shadow(0 10px 15px rgba(0,0,0,.32));
+    filter:
+        drop-shadow(
+            0 10px 15px rgba(0,0,0,.32)
+        );
 }
 
 #gunWrap.recoil {
-  animation: recoil .18s ease-out;
+    animation:
+        recoil .17s ease-out;
 }
 
 @keyframes recoil {
-  0% {
-    margin-bottom: 0;
-  }
 
-  40% {
-    margin-bottom: -13px;
-  }
+    0% {
+        bottom: -2%;
+    }
 
-  100% {
-    margin-bottom: 0;
-  }
+    40% {
+        bottom: -3.5%;
+    }
+
+    100% {
+        bottom: -2%;
+    }
 }
 
 /* =========================
-   СООБЩЕНИЕ О КОНФЕТАХ
+   ПРИЦЕЛ
 ========================= */
 
-#foundMessage {
-  position: absolute;
+#crosshair {
+    position: absolute;
 
-  left: 50%;
-  top: 16%;
+    left: 50%;
+    top: 50%;
 
-  transform:
-    translate(-50%, -20px)
-    scale(.8);
+    width: 54px;
+    height: 54px;
 
-  z-index: 700;
+    transform:
+        translate(-50%, -50%);
 
-  padding: 14px 26px;
+    z-index: 800;
 
-  border-radius: 22px;
+    pointer-events: none;
 
-  background:
-    rgba(43,31,78,.86);
+    border:
+        3px solid rgba(126,239,255,.95);
 
-  border:
-    1px solid rgba(255,255,255,.30);
+    border-radius: 50%;
 
-  backdrop-filter: blur(8px);
-
-  color: #fff6bf;
-
-  font-size: clamp(23px, 3vw, 40px);
-  font-weight: 900;
-
-  opacity: 0;
-  pointer-events: none;
-
-  box-shadow:
-    0 12px 30px rgba(0,0,0,.25);
-
-  text-shadow:
-    0 2px 6px rgba(0,0,0,.25);
+    box-shadow:
+        0 0 9px #65eaff,
+        inset 0 0 8px rgba(90,230,255,.5);
 }
 
-#foundMessage.show {
-  animation: foundMessage 1.5s ease forwards;
+#crosshair::before,
+#crosshair::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    background: #c8fbff;
+
+    box-shadow:
+        0 0 7px #6defff;
 }
 
-@keyframes foundMessage {
-  0% {
-    opacity: 0;
-    transform:
-      translate(-50%, -20px)
-      scale(.75);
-  }
+#crosshair::before {
+    width: 68px;
+    height: 2px;
+}
 
-  18% {
-    opacity: 1;
-    transform:
-      translate(-50%, 0)
-      scale(1.06);
-  }
+#crosshair::after {
+    width: 2px;
+    height: 68px;
+}
 
-  70% {
-    opacity: 1;
-    transform:
-      translate(-50%, 0)
-      scale(1);
-  }
+.crosshair-dot {
+    position: absolute;
 
-  100% {
-    opacity: 0;
+    left: 50%;
+    top: 50%;
+
+    width: 7px;
+    height: 7px;
+
     transform:
-      translate(-50%, -10px)
-      scale(.96);
-  }
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow:
+        0 0 9px #65eaff;
+}
+
+#crosshair.on-target {
+    transform:
+        translate(-50%, -50%)
+        scale(.86);
+
+    border-color: #ffe77c;
+
+    box-shadow:
+        0 0 13px #ffd45b,
+        inset 0 0 10px rgba(255,220,70,.6);
 }
 
 /* =========================
-   МАЛЕНЬКИЕ ЭКРАНЫ
+   ЛАЗЕР
+========================= */
+
+#laser {
+    position: absolute;
+
+    height: 7px;
+
+    border-radius: 999px;
+
+    transform-origin: 0 50%;
+
+    opacity: 0;
+
+    z-index: 500;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(89,220,255,.2),
+            #92f5ff,
+            white
+        );
+
+    box-shadow:
+        0 0 9px #66e8ff,
+        0 0 20px #55cfff,
+        0 0 34px rgba(71,190,255,.8);
+}
+
+#laser.fire {
+    animation:
+        laserFire .16s linear;
+}
+
+@keyframes laserFire {
+
+    0% {
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* =========================
+   ВСПЫШКА
+========================= */
+
+.hit-flash {
+    position: absolute;
+
+    width: 85px;
+    height: 85px;
+
+    border-radius: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(.1);
+
+    z-index: 510;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle,
+            white 0%,
+            #b9f7ff 18%,
+            #62dbff 34%,
+            rgba(77,163,255,.35) 55%,
+            transparent 72%
+        );
+
+    animation:
+        flash .32s ease-out forwards;
+}
+
+@keyframes flash {
+
+    from {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(.1);
+    }
+
+    to {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.8);
+    }
+}
+
+/* =========================
+   ВЫЛЕТЕВШИЕ КОНФЕТЫ
+========================= */
+
+#reward {
+    position: absolute;
+
+    left: 50%;
+    top: 46%;
+
+    width:
+        clamp(250px, 28vw, 450px);
+
+    transform:
+        translate(-50%, -50%)
+        scale(.1);
+
+    opacity: 0;
+
+    z-index: 1000;
+
+    pointer-events: none;
+
+    filter:
+        drop-shadow(
+            0 20px 20px rgba(0,0,0,.32)
+        );
+}
+
+#reward.show {
+    animation:
+        rewardFly .75s
+        cubic-bezier(.17,1.25,.32,1)
+        forwards;
+}
+
+@keyframes rewardFly {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, 40%)
+            scale(.15);
+    }
+
+    65% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -55%)
+            scale(1.10);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+}
+
+/* =========================
+   КНОПКА ЗАБРАТЬ
+========================= */
+
+#collectBtn {
+    position: absolute;
+
+    left: 50%;
+    top: 69%;
+
+    transform:
+        translate(-50%, 20px)
+        scale(.8);
+
+    z-index: 1010;
+
+    min-width: 270px;
+
+    padding:
+        16px 28px;
+
+    border: 2px solid
+        rgba(255,255,255,.65);
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffe36b,
+            #ff9d32
+        );
+
+    color: #542c57;
+
+    font-size:
+        clamp(20px, 2.2vw, 30px);
+
+    font-weight: 900;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.3),
+        inset 0 2px 0 rgba(255,255,255,.6);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    cursor: pointer;
+}
+
+#collectBtn.show {
+
+    animation:
+        collectAppear .35s ease forwards;
+
+    pointer-events: auto;
+}
+
+@keyframes collectAppear {
+
+    to {
+        opacity: 1;
+
+        transform:
+            translate(-50%, 0)
+            scale(1);
+    }
+}
+
+/* =========================
+   АДАПТАЦИЯ
 ========================= */
 
 @media (max-width: 720px) {
 
-  .setup-card {
-    padding: 22px 18px 24px;
-    border-radius: 24px;
-  }
+    .setup-card {
+        padding: 22px 18px;
+    }
 
-  .letter-btn {
-    width: 45px;
-    height: 45px;
-    font-size: 20px;
-  }
+    .letter-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
 
-  .syllable-types {
-    grid-template-columns: 1fr;
-  }
-
-  .type-btn {
-    min-height: 62px;
-  }
-
-  #gunWrap {
-    bottom: -7%;
-  }
+    .syllable-types {
+        grid-template-columns: 1fr;
+    }
 }
 </style>
 </head>
@@ -821,154 +962,180 @@ button {
 
 <div id="game">
 
-  <!-- =====================
-       НАСТРОЙКА
-  ====================== -->
+    <!-- НАСТРОЙКА -->
 
-  <div id="setupScreen">
+    <div id="setupScreen">
 
-    <div class="setup-card">
+        <div class="setup-card">
 
-      <div class="setup-title">
-        Тыквенный тир
-      </div>
+            <div class="setup-title">
+                Тыквенный тир
+            </div>
 
-      <div class="setup-subtitle">
-        Выбери буквы, из которых будут составлены слоги.
-        Можно выбрать до 8 букв.
-      </div>
+            <div class="setup-subtitle">
+                Выбери буквы, из которых будут составлены слоги.
+                Можно выбрать до 8 букв.
+            </div>
 
-      <div class="counter-wrap">
-        <div class="counter">
-          Выбрано:
-          <span id="selectedCount">&nbsp;0 / 8</span>
+            <div class="counter-wrap">
+                <div class="counter">
+                    Выбрано:
+                    <span id="selectedCount">
+                        &nbsp;0 / 8
+                    </span>
+                </div>
+            </div>
+
+            <div class="section">
+
+                <div class="section-title">
+                    Согласные
+                </div>
+
+                <div
+                    class="letters"
+                    id="consonants">
+                </div>
+
+            </div>
+
+            <div class="section">
+
+                <div class="section-title">
+                    Гласные
+                </div>
+
+                <div
+                    class="letters"
+                    id="vowels">
+                </div>
+
+            </div>
+
+            <div class="section">
+
+                <div class="section-title">
+                    Тип слогов
+                </div>
+
+                <div class="syllable-types">
+
+                    <button
+                        class="type-btn selected"
+                        data-type="open">
+
+                        <strong>
+                            Открытые
+                        </strong>
+
+                        <span>
+                            СА · МО · ЛУ
+                        </span>
+
+                    </button>
+
+                    <button
+                        class="type-btn"
+                        data-type="closed">
+
+                        <strong>
+                            Закрытые
+                        </strong>
+
+                        <span>
+                            АС · ОМ · УЛ
+                        </span>
+
+                    </button>
+
+                    <button
+                        class="type-btn"
+                        data-type="mixed">
+
+                        <strong>
+                            Смешанные
+                        </strong>
+
+                        <span>
+                            СА · АС · МО · ОМ
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div id="error"></div>
+
+            <button
+                class="start-btn"
+                id="startBtn">
+                Начать игру
+            </button>
+
         </div>
-      </div>
-
-      <div class="section">
-        <div class="section-title">
-          Согласные
-        </div>
-
-        <div
-          class="letters"
-          id="consonants"
-        ></div>
-      </div>
-
-      <div class="section">
-        <div class="section-title">
-          Гласные
-        </div>
-
-        <div
-          class="letters"
-          id="vowels"
-        ></div>
-      </div>
-
-      <div class="section">
-
-        <div class="section-title">
-          Тип слогов
-        </div>
-
-        <div class="syllable-types">
-
-          <button
-            class="type-btn selected"
-            data-type="open"
-          >
-            <strong>Открытые</strong>
-            <span>СА · МО · ЛУ</span>
-          </button>
-
-          <button
-            class="type-btn"
-            data-type="closed"
-          >
-            <strong>Закрытые</strong>
-            <span>АС · ОМ · УЛ</span>
-          </button>
-
-          <button
-            class="type-btn"
-            data-type="mixed"
-          >
-            <strong>Смешанные</strong>
-            <span>СА · АС · МО · ОМ</span>
-          </button>
-
-        </div>
-
-      </div>
-
-      <div id="error"></div>
-
-      <button
-        class="start-btn"
-        id="startBtn"
-      >
-        Начать игру
-      </button>
 
     </div>
-  </div>
 
-  <!-- =====================
-       ИГРА
-  ====================== -->
 
-  <div id="playScreen">
+    <!-- ИГРА -->
 
-    <button
-      id="settingsBtn"
-      title="Изменить буквы"
-    >
-      ⚙
-    </button>
+    <div id="playScreen">
 
-    <div id="pumpkinField"></div>
+        <button
+            id="settingsBtn">
+            ⚙
+        </button>
 
-    <div id="laser"></div>
+        <div id="pumpkinField"></div>
 
-    <div id="gunWrap">
-      <img
-        id="gun"
-        src="pistolet.png"
-        alt=""
-        draggable="false"
-      >
+        <div id="laser"></div>
+
+        <div id="gunWrap">
+            <img
+                id="gun"
+                src="pistolet.png"
+                draggable="false">
+        </div>
+
+        <div id="crosshair">
+            <div class="crosshair-dot"></div>
+        </div>
+
+        <img
+            id="reward"
+            src="konfet.png"
+            draggable="false">
+
+        <button id="collectBtn">
+            Забрать конфеты
+        </button>
+
     </div>
-
-    <div id="foundMessage">
-      Конфеты найдены!
-    </div>
-
-  </div>
 
 </div>
 
 
 <script>
 
-/* ==========================================================
-   НАСТРОЙКИ
-========================================================== */
+/* ======================================================
+   ОСНОВНЫЕ ДАННЫЕ
+====================================================== */
 
 const MAX_LETTERS = 8;
 
 const consonantLetters = [
-  "М","Н","П","Б","Т","Д",
-  "К","Г","Х","Ф","В",
-  "С","З","Ц",
-  "Ш","Ж","Ч","Щ",
-  "Л","Р"
+    "М","Н","П","Б","Т","Д",
+    "К","Г","Х","Ф","В",
+    "С","З","Ц",
+    "Ш","Ж","Ч","Щ",
+    "Л","Р"
 ];
 
 const vowelLetters = [
-  "А","О","У","Ы","Э",
-  "И","Е","Ё","Ю","Я"
+    "А","О","У","Ы","Э",
+    "И","Е","Ё","Ю","Я"
 ];
 
 let selectedConsonants = new Set();
@@ -980,878 +1147,1200 @@ let syllables = [];
 
 let gameLocked = false;
 
+let currentCandyPumpkin = null;
 
-/* ==========================================================
+let pumpkinId = 0;
+
+let nextPositionIndex = 0;
+
+
+/* ======================================================
    DOM
-========================================================== */
+====================================================== */
 
 const setupScreen =
-  document.getElementById("setupScreen");
-
-const playScreen =
-  document.getElementById("playScreen");
-
-const consonantsBox =
-  document.getElementById("consonants");
-
-const vowelsBox =
-  document.getElementById("vowels");
-
-const selectedCount =
-  document.getElementById("selectedCount");
-
-const errorBox =
-  document.getElementById("error");
-
-const startBtn =
-  document.getElementById("startBtn");
-
-const settingsBtn =
-  document.getElementById("settingsBtn");
-
-const pumpkinField =
-  document.getElementById("pumpkinField");
-
-const gunWrap =
-  document.getElementById("gunWrap");
-
-const laser =
-  document.getElementById("laser");
-
-const foundMessage =
-  document.getElementById("foundMessage");
-
-
-/* ==========================================================
-   СОЗДАНИЕ КНОПОК БУКВ
-========================================================== */
-
-function createLetterButtons(
-  letters,
-  container,
-  type
-) {
-
-  letters.forEach(letter => {
-
-    const button =
-      document.createElement("button");
-
-    button.className = "letter-btn";
-
-    button.textContent = letter;
-
-    button.dataset.letter = letter;
-    button.dataset.group = type;
-
-    button.addEventListener(
-      "click",
-      () => toggleLetter(button)
+    document.getElementById(
+        "setupScreen"
     );
 
-    container.appendChild(button);
+const playScreen =
+    document.getElementById(
+        "playScreen"
+    );
 
-  });
+const consonantsBox =
+    document.getElementById(
+        "consonants"
+    );
+
+const vowelsBox =
+    document.getElementById(
+        "vowels"
+    );
+
+const selectedCount =
+    document.getElementById(
+        "selectedCount"
+    );
+
+const errorBox =
+    document.getElementById(
+        "error"
+    );
+
+const startBtn =
+    document.getElementById(
+        "startBtn"
+    );
+
+const settingsBtn =
+    document.getElementById(
+        "settingsBtn"
+    );
+
+const pumpkinField =
+    document.getElementById(
+        "pumpkinField"
+    );
+
+const gunWrap =
+    document.getElementById(
+        "gunWrap"
+    );
+
+const crosshair =
+    document.getElementById(
+        "crosshair"
+    );
+
+const laser =
+    document.getElementById(
+        "laser"
+    );
+
+const reward =
+    document.getElementById(
+        "reward"
+    );
+
+const collectBtn =
+    document.getElementById(
+        "collectBtn"
+    );
+
+
+/* ======================================================
+   БУКВЫ
+====================================================== */
+
+function createLetterButtons(
+    letters,
+    container,
+    type
+) {
+
+    letters.forEach(letter => {
+
+        const button =
+            document.createElement(
+                "button"
+            );
+
+        button.className =
+            "letter-btn";
+
+        button.textContent =
+            letter;
+
+        button.dataset.letter =
+            letter;
+
+        button.dataset.group =
+            type;
+
+        button.addEventListener(
+            "click",
+            () => toggleLetter(button)
+        );
+
+        container.appendChild(
+            button
+        );
+
+    });
 
 }
 
 
 createLetterButtons(
-  consonantLetters,
-  consonantsBox,
-  "consonant"
+    consonantLetters,
+    consonantsBox,
+    "consonant"
 );
 
 createLetterButtons(
-  vowelLetters,
-  vowelsBox,
-  "vowel"
+    vowelLetters,
+    vowelsBox,
+    "vowel"
 );
 
 
-/* ==========================================================
+/* ======================================================
    ВЫБОР БУКВ
-========================================================== */
+====================================================== */
 
 function toggleLetter(button) {
 
-  errorBox.textContent = "";
+    errorBox.textContent = "";
 
-  const letter =
-    button.dataset.letter;
+    const letter =
+        button.dataset.letter;
 
-  const group =
-    button.dataset.group;
+    const set =
+        button.dataset.group ===
+        "consonant"
 
-  const set =
-    group === "consonant"
-      ? selectedConsonants
-      : selectedVowels;
+        ? selectedConsonants
+        : selectedVowels;
 
-  if (set.has(letter)) {
 
-    set.delete(letter);
+    if (set.has(letter)) {
 
-    button.classList.remove(
-      "selected"
-    );
+        set.delete(letter);
 
-  } else {
+        button.classList.remove(
+            "selected"
+        );
 
-    const total =
-      selectedConsonants.size +
-      selectedVowels.size;
+    } else {
 
-    if (total >= MAX_LETTERS) {
+        const total =
+            selectedConsonants.size +
+            selectedVowels.size;
 
-      errorBox.textContent =
-        "Можно выбрать максимум 8 букв.";
+        if (
+            total >= MAX_LETTERS
+        ) {
 
-      return;
+            errorBox.textContent =
+                "Можно выбрать максимум 8 букв.";
+
+            return;
+
+        }
+
+        set.add(letter);
+
+        button.classList.add(
+            "selected"
+        );
 
     }
 
-    set.add(letter);
-
-    button.classList.add(
-      "selected"
-    );
-
-  }
-
-  updateCounter();
+    updateCounter();
 
 }
 
 
 function updateCounter() {
 
-  const total =
-    selectedConsonants.size +
-    selectedVowels.size;
+    const total =
+        selectedConsonants.size +
+        selectedVowels.size;
 
-  selectedCount.textContent =
-    ` ${total} / ${MAX_LETTERS}`;
+    selectedCount.textContent =
+        ` ${total} / 8`;
 
 }
 
 
-/* ==========================================================
-   ВЫБОР ТИПА СЛОГОВ
-========================================================== */
+/* ======================================================
+   ТИП СЛОГОВ
+====================================================== */
 
 document
-  .querySelectorAll(".type-btn")
-  .forEach(button => {
+.querySelectorAll(".type-btn")
+.forEach(button => {
 
     button.addEventListener(
-      "click",
-      () => {
+        "click",
+        () => {
 
-        document
-          .querySelectorAll(".type-btn")
-          .forEach(btn =>
-            btn.classList.remove(
-              "selected"
+            document
+            .querySelectorAll(
+                ".type-btn"
             )
-          );
+            .forEach(btn =>
+                btn.classList.remove(
+                    "selected"
+                )
+            );
 
-        button.classList.add(
-          "selected"
-        );
+            button.classList.add(
+                "selected"
+            );
 
-        syllableType =
-          button.dataset.type;
+            syllableType =
+                button.dataset.type;
 
-      }
+        }
     );
 
-  });
+});
 
 
-/* ==========================================================
-   СОЗДАНИЕ СЛОГОВ
-========================================================== */
+/* ======================================================
+   ГЕНЕРАЦИЯ СЛОГОВ
+====================================================== */
 
 function buildSyllables() {
 
-  const consonants =
-    [...selectedConsonants];
+    const result = [];
 
-  const vowels =
-    [...selectedVowels];
+    const consonants =
+        [...selectedConsonants];
 
-  const result = [];
+    const vowels =
+        [...selectedVowels];
 
-  consonants.forEach(c => {
 
-    vowels.forEach(v => {
+    consonants.forEach(c => {
 
-      if (
-        syllableType === "open" ||
-        syllableType === "mixed"
-      ) {
+        vowels.forEach(v => {
 
-        result.push(c + v);
+            if (
+                syllableType === "open" ||
+                syllableType === "mixed"
+            ) {
 
-      }
+                result.push(c + v);
 
-      if (
-        syllableType === "closed" ||
-        syllableType === "mixed"
-      ) {
+            }
 
-        result.push(v + c);
+            if (
+                syllableType === "closed" ||
+                syllableType === "mixed"
+            ) {
 
-      }
+                result.push(v + c);
+
+            }
+
+        });
 
     });
 
-  });
 
-  return shuffle(
-    [...new Set(result)]
-  );
+    return shuffle(
+        [...new Set(result)]
+    );
 
 }
 
 
-/* ==========================================================
+/* ======================================================
    ЗАПУСК
-========================================================== */
+====================================================== */
 
 startBtn.addEventListener(
-  "click",
-  startGame
+    "click",
+    startGame
 );
 
 
 function startGame() {
 
-  errorBox.textContent = "";
+    errorBox.textContent = "";
 
-  if (
-    selectedConsonants.size === 0
-  ) {
+    if (
+        selectedConsonants.size === 0
+    ) {
 
-    errorBox.textContent =
-      "Выбери хотя бы одну согласную.";
+        errorBox.textContent =
+            "Выбери хотя бы одну согласную.";
 
-    return;
+        return;
 
-  }
+    }
 
-  if (
-    selectedVowels.size === 0
-  ) {
+    if (
+        selectedVowels.size === 0
+    ) {
 
-    errorBox.textContent =
-      "Выбери хотя бы одну гласную.";
+        errorBox.textContent =
+            "Выбери хотя бы одну гласную.";
 
-    return;
+        return;
 
-  }
+    }
 
-  syllables =
-    buildSyllables();
 
-  setupScreen.style.display =
-    "none";
+    syllables =
+        buildSyllables();
 
-  playScreen.classList.add(
-    "active"
-  );
 
-  createRound();
+    setupScreen.style.display =
+        "none";
+
+    playScreen.classList.add(
+        "active"
+    );
+
+
+    startField();
 
 }
 
 
-/* ==========================================================
+/* ======================================================
    ПОЗИЦИИ ТЫКВ
-========================================================== */
+====================================================== */
 
 /*
-  Позиции специально заданы вручную,
-  чтобы тыквы действительно стояли
-  на поляне и не накладывались друг
-  на друга.
+   Первые четыре позиции повторяют
+   расположение текущего поля.
 
-  x/y в процентах игрового экрана.
+   Следующие используются для новых
+   тыкв после найденных конфет.
 */
 
 const pumpkinPositions = [
 
-  {
-    x: 18,
-    y: 57,
-    scale: .88
-  },
+    { x: 19, y: 57, scale: .88 },
 
-  {
-    x: 39,
-    y: 48,
-    scale: .82
-  },
+    { x: 40, y: 49, scale: .82 },
 
-  {
-    x: 62,
-    y: 49,
-    scale: .84
-  },
+    { x: 63, y: 50, scale: .84 },
 
-  {
-    x: 83,
-    y: 58,
-    scale: .90
-  }
+    { x: 84, y: 58, scale: .90 },
+
+    { x: 29, y: 67, scale: .92 },
+
+    { x: 72, y: 67, scale: .92 },
+
+    { x: 50, y: 61, scale: .90 },
+
+    { x: 12, y: 70, scale: .86 },
+
+    { x: 89, y: 70, scale: .86 },
+
+    { x: 50, y: 39, scale: .76 }
 
 ];
 
 
-/* ==========================================================
-   НОВОЕ ПОЛЕ
-========================================================== */
+/* ======================================================
+   НАЧАЛО ПОЛЯ
+====================================================== */
 
-function createRound() {
+function startField() {
 
-  gameLocked = false;
+    pumpkinField.innerHTML = "";
 
-  pumpkinField.innerHTML = "";
+    pumpkinId = 0;
 
-  const candyIndex =
-    Math.floor(
-      Math.random() *
-      pumpkinPositions.length
-    );
-
-  const roundSyllables =
-    getRoundSyllables(
-      pumpkinPositions.length
-    );
-
-  pumpkinPositions.forEach(
-    (position, index) => {
-
-      createPumpkin(
-        position,
-        roundSyllables[index],
-        index === candyIndex
-      );
-
-    }
-  );
-
-}
-
-
-/* ==========================================================
-   ВЫБОР СЛОГОВ НА ПОЛЕ
-========================================================== */
-
-function getRoundSyllables(count) {
-
-  if (syllables.length === 0) {
-    return [];
-  }
-
-  const shuffled =
-    shuffle([...syllables]);
-
-  const result = [];
-
-  for (
-    let i = 0;
-    i < count;
-    i++
-  ) {
-
-    result.push(
-      shuffled[
-        i % shuffled.length
-      ]
-    );
-
-  }
-
-  return result;
-
-}
-
-
-/* ==========================================================
-   СОЗДАНИЕ ТЫКВЫ
-========================================================== */
-
-function createPumpkin(
-  position,
-  syllable,
-  hasCandy
-) {
-
-  const slot =
-    document.createElement("div");
-
-  slot.className =
-    "pumpkin-slot";
-
-  if (hasCandy) {
-
-    slot.classList.add(
-      "has-candy"
-    );
-
-  }
-
-  slot.style.left =
-    position.x + "%";
-
-  slot.style.top =
-    position.y + "%";
-
-  slot.style.scale =
-    position.scale;
-
-  slot.dataset.hasCandy =
-    hasCandy ? "1" : "0";
-
-
-  /* цельная */
-
-  const whole =
-    document.createElement("img");
-
-  whole.src =
-    "tikva.png";
-
-  whole.className =
-    "whole-pumpkin";
-
-  whole.draggable = false;
-
-
-  /* слог */
-
-  const text =
-    document.createElement("div");
-
-  text.className =
-    "syllable";
-
-  text.textContent =
-    syllable;
-
-
-  /* левая половинка */
-
-  const left =
-    document.createElement("img");
-
-  left.src =
-    "pumpkin_left.png";
-
-  left.className =
-    "half left-half";
-
-  left.draggable = false;
-
-
-  /* правая половинка */
-
-  const right =
-    document.createElement("img");
-
-  right.src =
-    "pumpkin_right.png";
-
-  right.className =
-    "half right-half";
-
-  right.draggable = false;
-
-
-  /* конфеты */
-
-  const candy =
-    document.createElement("img");
-
-  candy.src =
-    "konfet.png";
-
-  candy.className =
-    "candy";
-
-  candy.draggable = false;
-
-
-  slot.appendChild(candy);
-
-  slot.appendChild(left);
-
-  slot.appendChild(right);
-
-  slot.appendChild(whole);
-
-  slot.appendChild(text);
-
-
-  slot.addEventListener(
-    "click",
-    event => {
-
-      event.stopPropagation();
-
-      shootPumpkin(slot);
-
-    }
-  );
-
-
-  pumpkinField.appendChild(
-    slot
-  );
-
-}
-
-
-/* ==========================================================
-   ВЫСТРЕЛ
-========================================================== */
-
-function shootPumpkin(slot) {
-
-  if (
-    gameLocked ||
-    slot.classList.contains(
-      "opened"
-    )
-  ) {
-
-    return;
-
-  }
-
-  const rect =
-    slot.getBoundingClientRect();
-
-  const targetX =
-    rect.left +
-    rect.width / 2;
-
-  const targetY =
-    rect.top +
-    rect.height / 2;
-
-  fireLaser(
-    targetX,
-    targetY
-  );
-
-  createFlash(
-    targetX,
-    targetY
-  );
-
-  gunWrap.classList.remove(
-    "recoil"
-  );
-
-  void gunWrap.offsetWidth;
-
-  gunWrap.classList.add(
-    "recoil"
-  );
-
-
-  setTimeout(() => {
-
-    slot.classList.add(
-      "opened"
-    );
-
-  }, 90);
-
-
-  if (
-    slot.dataset.hasCandy === "1"
-  ) {
-
-    gameLocked = true;
-
-    setTimeout(
-      candyFound,
-      520
-    );
-
-  }
-
-}
-
-
-/* ==========================================================
-   ЛАЗЕР
-========================================================== */
-
-function fireLaser(
-  targetX,
-  targetY
-) {
-
-  const gunRect =
-    gunWrap.getBoundingClientRect();
-
-  /*
-    Точка начала луча примерно
-    у верхнего края ствола.
-  */
-
-  const startX =
-    gunRect.left +
-    gunRect.width / 2;
-
-  const startY =
-    gunRect.top +
-    gunRect.height * .08;
-
-  const dx =
-    targetX - startX;
-
-  const dy =
-    targetY - startY;
-
-  const distance =
-    Math.sqrt(
-      dx * dx +
-      dy * dy
-    );
-
-  const angle =
-    Math.atan2(
-      dy,
-      dx
-    ) *
-    180 /
-    Math.PI;
-
-
-  laser.style.left =
-    startX + "px";
-
-  laser.style.top =
-    startY + "px";
-
-  laser.style.width =
-    distance + "px";
-
-  laser.style.transform =
-    `rotate(${angle}deg)`;
-
-
-  laser.classList.remove(
-    "fire"
-  );
-
-  void laser.offsetWidth;
-
-  laser.classList.add(
-    "fire"
-  );
-
-}
-
-
-/* ==========================================================
-   ВСПЫШКА
-========================================================== */
-
-function createFlash(
-  x,
-  y
-) {
-
-  const flash =
-    document.createElement("div");
-
-  flash.className =
-    "hit-flash";
-
-  flash.style.left =
-    x + "px";
-
-  flash.style.top =
-    y + "px";
-
-  playScreen.appendChild(
-    flash
-  );
-
-  setTimeout(
-    () => flash.remove(),
-    400
-  );
-
-}
-
-
-/* ==========================================================
-   НАШЛИ КОНФЕТЫ
-========================================================== */
-
-function candyFound() {
-
-  foundMessage.classList.remove(
-    "show"
-  );
-
-  void foundMessage.offsetWidth;
-
-  foundMessage.classList.add(
-    "show"
-  );
-
-
-  /*
-    Даём ребёнку увидеть
-    раскрытую тыкву и конфеты.
-  */
-
-  setTimeout(
-    () => {
-
-      createRound();
-
-    },
-    1800
-  );
-
-}
-
-
-/* ==========================================================
-   ПОВОРОТ ПИСТОЛЕТА
-========================================================== */
-
-playScreen.addEventListener(
-  "pointermove",
-  event => {
-
-    if (
-      !playScreen.classList.contains(
-        "active"
-      )
-    ) {
-
-      return;
-
-    }
-
-    const rect =
-      playScreen.getBoundingClientRect();
-
-    const centerX =
-      rect.width / 2;
-
-    const bottomY =
-      rect.height;
-
-    const dx =
-      event.clientX -
-      centerX;
-
-    const dy =
-      bottomY -
-      event.clientY;
-
-    /*
-      Угол относительно вертикали.
-    */
-
-    let angle =
-      Math.atan2(
-        dx,
-        Math.max(dy, 100)
-      ) *
-      180 /
-      Math.PI;
-
-    /*
-      Ограничиваем движение,
-      чтобы оружие не ложилось
-      горизонтально.
-    */
-
-    angle =
-      Math.max(
-        -31,
-        Math.min(
-          31,
-          angle
-        )
-      );
-
-    gunWrap.style.transform =
-      `translateX(-50%) rotate(${angle}deg)`;
-
-  }
-);
-
-
-/* ==========================================================
-   ВОЗВРАТ К НАСТРОЙКАМ
-========================================================== */
-
-settingsBtn.addEventListener(
-  "click",
-  () => {
-
-    playScreen.classList.remove(
-      "active"
-    );
-
-    setupScreen.style.display =
-      "flex";
-
-    pumpkinField.innerHTML =
-      "";
+    nextPositionIndex = 0;
 
     gameLocked = false;
 
-  }
+
+    for (
+        let i = 0;
+        i < 4;
+        i++
+    ) {
+
+        addNewPumpkin();
+
+    }
+
+
+    hideCandy();
+
+    chooseCandyPumpkin();
+
+}
+
+
+/* ======================================================
+   ДОБАВЛЕНИЕ НОВОЙ ТЫКВЫ
+====================================================== */
+
+function addNewPumpkin() {
+
+    let position;
+
+
+    if (
+        nextPositionIndex <
+        pumpkinPositions.length
+    ) {
+
+        position =
+            pumpkinPositions[
+                nextPositionIndex
+            ];
+
+    } else {
+
+        /*
+           Если игра идёт очень долго,
+           новые тыквы появляются
+           в свободной центральной зоне.
+        */
+
+        position = {
+
+            x:
+                15 +
+                Math.random() * 70,
+
+            y:
+                42 +
+                Math.random() * 29,
+
+            scale:
+                .78 +
+                Math.random() * .15
+
+        };
+
+    }
+
+
+    nextPositionIndex++;
+
+
+    const syllable =
+        syllables[
+            Math.floor(
+                Math.random() *
+                syllables.length
+            )
+        ];
+
+
+    createPumpkin(
+        position,
+        syllable
+    );
+
+}
+
+
+/* ======================================================
+   СОЗДАНИЕ ТЫКВЫ
+====================================================== */
+
+function createPumpkin(
+    position,
+    syllable
+) {
+
+    const slot =
+        document.createElement(
+            "div"
+        );
+
+    slot.className =
+        "pumpkin-slot";
+
+    slot.dataset.id =
+        ++pumpkinId;
+
+    slot.dataset.hasCandy =
+        "0";
+
+    slot.style.left =
+        position.x + "%";
+
+    slot.style.top =
+        position.y + "%";
+
+    slot.style.scale =
+        position.scale;
+
+
+    const candy =
+        document.createElement(
+            "img"
+        );
+
+    candy.src =
+        "konfet.png";
+
+    candy.className =
+        "candy-inside";
+
+    candy.draggable = false;
+
+
+    const left =
+        document.createElement(
+            "img"
+        );
+
+    left.src =
+        "pumpkin_left.png";
+
+    left.className =
+        "half left-half";
+
+    left.draggable = false;
+
+
+    const right =
+        document.createElement(
+            "img"
+        );
+
+    right.src =
+        "pumpkin_right.png";
+
+    right.className =
+        "half right-half";
+
+    right.draggable = false;
+
+
+    const whole =
+        document.createElement(
+            "img"
+        );
+
+    whole.src =
+        "tikva.png";
+
+    whole.className =
+        "whole-pumpkin";
+
+    whole.draggable = false;
+
+
+    const text =
+        document.createElement(
+            "div"
+        );
+
+    text.className =
+        "syllable";
+
+    text.textContent =
+        syllable;
+
+
+    /*
+       Порядок слоёв важен.
+
+       Конфеты находятся позади
+       половинок и становятся видны
+       между ними.
+    */
+
+    slot.appendChild(candy);
+
+    slot.appendChild(left);
+
+    slot.appendChild(right);
+
+    slot.appendChild(whole);
+
+    slot.appendChild(text);
+
+
+    slot.addEventListener(
+        "click",
+        event => {
+
+            event.stopPropagation();
+
+            shootPumpkin(slot);
+
+        }
+    );
+
+
+    slot.addEventListener(
+        "pointerenter",
+        () => {
+
+            if (
+                !slot.classList.contains(
+                    "opened"
+                )
+            ) {
+
+                slot.classList.add(
+                    "targeted"
+                );
+
+                crosshair.classList.add(
+                    "on-target"
+                );
+
+            }
+
+        }
+    );
+
+
+    slot.addEventListener(
+        "pointerleave",
+        () => {
+
+            slot.classList.remove(
+                "targeted"
+            );
+
+            crosshair.classList.remove(
+                "on-target"
+            );
+
+        }
+    );
+
+
+    pumpkinField.appendChild(
+        slot
+    );
+
+}
+
+
+/* ======================================================
+   ПРЯЧЕМ КОНФЕТЫ
+====================================================== */
+
+function chooseCandyPumpkin() {
+
+    const available =
+        [
+            ...document.querySelectorAll(
+                ".pumpkin-slot:not(.opened)"
+            )
+        ];
+
+
+    available.forEach(slot => {
+
+        slot.dataset.hasCandy =
+            "0";
+
+        slot.classList.remove(
+            "has-candy"
+        );
+
+    });
+
+
+    if (
+        available.length === 0
+    ) {
+
+        addNewPumpkin();
+
+        chooseCandyPumpkin();
+
+        return;
+
+    }
+
+
+    currentCandyPumpkin =
+        available[
+            Math.floor(
+                Math.random() *
+                available.length
+            )
+        ];
+
+
+    currentCandyPumpkin.dataset.hasCandy =
+        "1";
+
+}
+
+
+/* ======================================================
+   ВЫСТРЕЛ
+====================================================== */
+
+function shootPumpkin(slot) {
+
+    if (gameLocked) {
+        return;
+    }
+
+
+    if (
+        slot.classList.contains(
+            "opened"
+        )
+    ) {
+
+        return;
+
+    }
+
+
+    const rect =
+        slot.getBoundingClientRect();
+
+
+    const targetX =
+        rect.left +
+        rect.width / 2;
+
+    const targetY =
+        rect.top +
+        rect.height / 2;
+
+
+    fireLaser(
+        targetX,
+        targetY
+    );
+
+
+    createFlash(
+        targetX,
+        targetY
+    );
+
+
+    gunWrap.classList.remove(
+        "recoil"
+    );
+
+    void gunWrap.offsetWidth;
+
+    gunWrap.classList.add(
+        "recoil"
+    );
+
+
+    const foundCandy =
+        slot.dataset.hasCandy ===
+        "1";
+
+
+    if (foundCandy) {
+
+        slot.classList.add(
+            "has-candy"
+        );
+
+    }
+
+
+    setTimeout(
+        () => {
+
+            slot.classList.add(
+                "opened"
+            );
+
+        },
+        80
+    );
+
+
+    if (foundCandy) {
+
+        gameLocked = true;
+
+
+        setTimeout(
+            () => showReward(slot),
+            850
+        );
+
+    }
+
+}
+
+
+/* ======================================================
+   КОНФЕТЫ ВЫЛЕТАЮТ НА ЭКРАН
+====================================================== */
+
+function showReward(slot) {
+
+    /*
+       Конфеты сначала были видны
+       внутри раскрытой тыквы.
+
+       Теперь их копия вылетает
+       на передний план.
+    */
+
+
+    reward.classList.remove(
+        "show"
+    );
+
+    collectBtn.classList.remove(
+        "show"
+    );
+
+
+    void reward.offsetWidth;
+
+
+    reward.classList.add(
+        "show"
+    );
+
+
+    setTimeout(
+        () => {
+
+            collectBtn.classList.add(
+                "show"
+            );
+
+        },
+        420
+    );
+
+}
+
+
+/* ======================================================
+   ЗАБРАТЬ КОНФЕТЫ
+====================================================== */
+
+collectBtn.addEventListener(
+    "click",
+    event => {
+
+        event.stopPropagation();
+
+
+        reward.classList.remove(
+            "show"
+        );
+
+        collectBtn.classList.remove(
+            "show"
+        );
+
+
+        /*
+           У найденной тыквы больше
+           нет конфет.
+        */
+
+        if (currentCandyPumpkin) {
+
+            currentCandyPumpkin
+                .classList.remove(
+                    "has-candy"
+                );
+
+            currentCandyPumpkin
+                .dataset.hasCandy =
+                    "0";
+
+        }
+
+
+        /*
+           Добавляем НОВУЮ целую
+           тыкву на поляну.
+        */
+
+        addNewPumpkin();
+
+
+        /*
+           И только теперь конфеты
+           случайно прячутся среди
+           ВСЕХ оставшихся целых
+           тыкв.
+
+           Поэтому они могут попасть
+           как в старую неоткрытую
+           тыкву, так и в только что
+           появившуюся.
+        */
+
+        chooseCandyPumpkin();
+
+
+        gameLocked = false;
+
+    }
 );
 
 
-/* ==========================================================
-   ПЕРЕМЕШИВАНИЕ
-========================================================== */
+/* ======================================================
+   ЛАЗЕР
+====================================================== */
+
+function fireLaser(
+    targetX,
+    targetY
+) {
+
+    const gunRect =
+        gunWrap.getBoundingClientRect();
+
+
+    const startX =
+        gunRect.left +
+        gunRect.width / 2;
+
+
+    const startY =
+        gunRect.top +
+        gunRect.height * .05;
+
+
+    const dx =
+        targetX - startX;
+
+    const dy =
+        targetY - startY;
+
+
+    const distance =
+        Math.sqrt(
+            dx * dx +
+            dy * dy
+        );
+
+
+    const angle =
+        Math.atan2(
+            dy,
+            dx
+        ) *
+        180 /
+        Math.PI;
+
+
+    laser.style.left =
+        startX + "px";
+
+    laser.style.top =
+        startY + "px";
+
+    laser.style.width =
+        distance + "px";
+
+    laser.style.transform =
+        `rotate(${angle}deg)`;
+
+
+    laser.classList.remove(
+        "fire"
+    );
+
+    void laser.offsetWidth;
+
+    laser.classList.add(
+        "fire"
+    );
+
+}
+
+
+/* ======================================================
+   ВСПЫШКА
+====================================================== */
+
+function createFlash(
+    x,
+    y
+) {
+
+    const flash =
+        document.createElement(
+            "div"
+        );
+
+    flash.className =
+        "hit-flash";
+
+    flash.style.left =
+        x + "px";
+
+    flash.style.top =
+        y + "px";
+
+
+    playScreen.appendChild(
+        flash
+    );
+
+
+    setTimeout(
+        () => flash.remove(),
+        400
+    );
+
+}
+
+
+/* ======================================================
+   ПРИЦЕЛ + ПОВОРОТ ПИСТОЛЕТА
+====================================================== */
+
+playScreen.addEventListener(
+    "pointermove",
+    event => {
+
+        if (gameLocked) {
+            return;
+        }
+
+
+        /*
+           Прицел следует за мышкой.
+        */
+
+        crosshair.style.left =
+            event.clientX + "px";
+
+        crosshair.style.top =
+            event.clientY + "px";
+
+
+        /*
+           Пистолет смотрит на прицел.
+        */
+
+        const rect =
+            playScreen.getBoundingClientRect();
+
+
+        const centerX =
+            rect.width / 2;
+
+
+        const bottomY =
+            rect.height;
+
+
+        const dx =
+            event.clientX -
+            centerX;
+
+
+        const dy =
+            bottomY -
+            event.clientY;
+
+
+        let angle =
+            Math.atan2(
+                dx,
+                Math.max(
+                    dy,
+                    100
+                )
+            ) *
+            180 /
+            Math.PI;
+
+
+        angle =
+            Math.max(
+                -32,
+                Math.min(
+                    32,
+                    angle
+                )
+            );
+
+
+        gunWrap.style.transform =
+            `translateX(-50%) rotate(${angle}deg)`;
+
+    }
+);
+
+
+/* ======================================================
+   ВОЗВРАТ В НАСТРОЙКИ
+====================================================== */
+
+settingsBtn.addEventListener(
+    "click",
+    () => {
+
+        playScreen.classList.remove(
+            "active"
+        );
+
+        setupScreen.style.display =
+            "flex";
+
+        pumpkinField.innerHTML =
+            "";
+
+        reward.classList.remove(
+            "show"
+        );
+
+        collectBtn.classList.remove(
+            "show"
+        );
+
+        gameLocked = false;
+
+    }
+);
+
+
+/* ======================================================
+   ВСПОМОГАТЕЛЬНОЕ
+====================================================== */
+
+function hideCandy() {
+
+    reward.classList.remove(
+        "show"
+    );
+
+    collectBtn.classList.remove(
+        "show"
+    );
+
+}
+
 
 function shuffle(array) {
 
-  for (
-    let i =
-      array.length - 1;
+    for (
+        let i =
+            array.length - 1;
 
-    i > 0;
+        i > 0;
 
-    i--
-  ) {
+        i--
+    ) {
 
-    const j =
-      Math.floor(
-        Math.random() *
-        (i + 1)
-      );
+        const j =
+            Math.floor(
+                Math.random() *
+                (i + 1)
+            );
 
-    [
-      array[i],
-      array[j]
-    ] = [
-      array[j],
-      array[i]
-    ];
 
-  }
+        [
+            array[i],
+            array[j]
+        ] = [
+            array[j],
+            array[i]
+        ];
 
-  return array;
+    }
+
+
+    return array;
 
 }
 
